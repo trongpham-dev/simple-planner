@@ -7,8 +7,9 @@ const styles = StyleSheet.create({
     fontStyle: "bold",
     color: "#907B62",
     width: "100%",
-    paddingBottom: 8,
-    fontFamily: "Clash Display",
+    paddingBottom: 4,
+    fontSize: 14,
+    fontWeight: 700,
   },
 });
 
