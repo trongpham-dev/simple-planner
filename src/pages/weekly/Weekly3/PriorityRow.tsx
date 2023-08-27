@@ -1,17 +1,18 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { COLOR } from "constants/color";
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomColor: "#EEE7DF",
+    borderBottomColor: COLOR.LIGHT_BROWN,
     borderBottomWidth: 1,
-    color: "#3D3429",
+    color: COLOR.BLACK,
     width: "100%",
     height: 20,
     marginTop: 7,
     paddingLeft: 8,
   },
   orderContainer: {
-    backgroundColor: "#EEE7DF",
+    backgroundColor: COLOR.LIGHT_BROWN,
     width: 20,
     textAlign: "center",
     paddingVertical: 2,

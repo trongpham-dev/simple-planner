@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { StyleSheet, View } from "@react-pdf/renderer";
+import { COLOR } from "constants/color";
 import Heading from "pages/weekly/Weekly3/Heading";
 
 const styles = StyleSheet.create({
   container: {
-    color: "#907B62",
+    color: COLOR.BROWN,
     width: "100%",
     height: "100%",
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-    backgroundColor: "#EEE7DF",
+    paddingVertical: 8,
+    paddingHorizontal: 8,
+    backgroundColor: COLOR.LIGHT_BROWN,
   },
 });
 

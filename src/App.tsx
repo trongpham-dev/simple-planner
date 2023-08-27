@@ -2,6 +2,8 @@ import { Font, PDFViewer } from "@react-pdf/renderer";
 
 import { Weekly3 } from "pages/weekly/Weekly3";
 import clashDisplay from "./assets/fonts/ClashDisplay-Regular.ttf";
+import { Weekly2 } from "pages/weekly/Weekly2";
+import { Weekly4 } from "pages/weekly/Weekly4";
 
 Font.register({
   family: "Clash Display",
@@ -10,15 +12,10 @@ Font.register({
 
 function App() {
   return (
-    // <PDFDownloadLink document={<MainDocument />} fileName="digital-planner.pdf">
-    //   {({ blob, url, loading, error }) =>
-    //     loading ? "Loading document..." : "Download now!"
-    //   }
-    // </PDFDownloadLink>
-
     <PDFViewer className="w-full h-full">
-      <Weekly3 />
-      {/* <Weekly4 /> */}
+      {/* <Weekly2 /> */}
+      {/* <Weekly3 /> */}
+      <Weekly4 />
     </PDFViewer>
   );
 }

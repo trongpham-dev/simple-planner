@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { COLOR } from "constants/color";
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomColor: "#907B62",
+    borderBottomColor: COLOR.BROWN,
     borderBottomWidth: 1,
     fontStyle: "bold",
-    color: "#907B62",
+    color: COLOR.BROWN,
     width: "100%",
     paddingBottom: 4,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 700,
   },
 });
