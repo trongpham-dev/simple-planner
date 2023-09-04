@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 
 const TimeTable = () => (
   <View style={styles.tableContainer}>
-    <TimeTableHeader />
+    {/* <TimeTableHeader /> */}
     <TimeTableBlankRow rowsCount={18} />
   </View>
 );

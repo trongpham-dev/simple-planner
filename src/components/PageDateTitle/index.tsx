@@ -16,11 +16,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function PageDateTitle() {
+interface Props {
+  heading: string;
+  description: string;
+}
+
+export default function PageDateTitle({ heading, description }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>August 2023</Text>
-      <Text style={styles.description}>07 august - 13 August</Text>
+      <Text style={styles.heading}>{heading}</Text>
+      <Text style={styles.description}>{description}</Text>
     </View>
   );
 }

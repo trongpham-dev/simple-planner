@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import TimeTableHeaderItem from "components/TimeTable/TimeTableHeaderItem";
 import { COLOR } from "constants/color";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   container: {
@@ -34,18 +35,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const TimeTableHeader = () => {
-  return (
-    <View style={styles.container}>
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem />
-      <TimeTableHeaderItem withoutBorder={true} />
-    </View>
-  );
+interface Props {
+  days: Moment[];
+}
+
+const TimeTableHeader = ({ days }: Props) => {
+  const elms = days.map((day, i) => (
+    <TimeTableHeaderItem withoutBorder={i === 6 ? true : false} day={day} />
+  ));
+  return <View style={styles.container}>{elms}</View>;
 };
 
 export default TimeTableHeader;

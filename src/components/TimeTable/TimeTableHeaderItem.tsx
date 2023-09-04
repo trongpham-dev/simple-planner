@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
+import moment, { Moment } from "moment";
 
 const styles = StyleSheet.create({
   container: {
@@ -28,15 +29,17 @@ const styles = StyleSheet.create({
 
 type Props = {
   withoutBorder?: boolean;
+  day: Moment;
 };
 
-const TimeTableHeaderItem = ({ withoutBorder = false }: Props) => {
+const TimeTableHeaderItem = ({ withoutBorder = false, day }: Props) => {
+  console.log(day);
   return (
     <View
       style={withoutBorder ? styles.withoutBorderContainer : styles.container}
     >
-      <Text style={styles.number}>07</Text>
-      <Text style={styles.title}>Monday</Text>
+      <Text style={styles.number}>{day.format("DD")}</Text>
+      <Text style={styles.title}>{day.format("dddd")}</Text>
     </View>
   );
 };

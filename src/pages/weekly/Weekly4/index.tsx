@@ -2,6 +2,8 @@ import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
 import TodoCard from "components/TodoCard";
+import moment from "moment";
+import { Daily1 } from "pages/daily/Daily1";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -37,32 +39,75 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Weekly4 = () => {
-  return (
-    <Document>
-      <Page size="A4" style={styles.page} orientation="landscape">
-        <View style={styles.heading}>
-          <PageDateTitle />
-        </View>
+const getWeekDates = (year: number, month: number, dayOfWeek: number) => {
+  let weeks = [];
+  let firstDay = moment([year, month]).startOf("month");
+  let lastDay = moment([year, month]).endOf("month");
+  let week = firstDay.clone().day(dayOfWeek);
+  while (week.isBefore(lastDay)) {
+    let days = [];
+    for (let i = 0; i < 7; i++) {
+      days.push(week.clone().add(i, "d"));
+    }
+    weeks.push(days);
+    week.add(7, "d");
+  }
+  return weeks;
+};
 
-        <View style={styles.container}>
-          <View style={styles.top}>
-            <DayTable />
+interface Props {
+  id: number;
+  year: number;
+  month: number;
+  startDate: number;
+}
+
+export const Weekly4 = ({ id, year, month, startDate }: Props) => {
+  const weeks = getWeekDates(year, month, startDate);
+  let firstWeek = 0;
+  const elms = weeks.map((w) => {
+    const currMonth = moment().month(month).format("MMMM");
+    const heading = moment().year(year).month(month).format("MMMM YYYY");
+    const description = `${w[0].date()} ${currMonth} - ${w[
+      w.length - 1
+    ].date()} ${currMonth}`;
+    return (
+      <>
+        <Page
+          size="A4"
+          style={styles.page}
+          wrap={false}
+          orientation="landscape"
+          id={`${String(id)}-${String(firstWeek++)}`}
+        >
+          <View style={styles.heading}>
+            <PageDateTitle heading={heading} description={`${description}`} />
           </View>
 
-          <View style={styles.bottom}>
-            <View style={styles.todoCard}>
-              <TodoCard />
+          <View style={styles.container}>
+            <View style={styles.top}>
+              <DayTable days={w} />
             </View>
-            <View style={styles.todoCard}>
-              <TodoCard />
-            </View>
-            <View style={styles.note}>
-              <Notes />
+
+            <View style={styles.bottom}>
+              <View style={styles.todoCard}>
+                <TodoCard />
+              </View>
+              <View style={styles.todoCard}>
+                <TodoCard />
+              </View>
+              <View style={styles.note}>
+                <Notes />
+              </View>
             </View>
           </View>
-        </View>
-      </Page>
-    </Document>
-  );
+        </Page>
+        {w.map((d) => (
+          <Daily1 day={d} />
+        ))}
+      </>
+    );
+  });
+
+  return elms;
 };

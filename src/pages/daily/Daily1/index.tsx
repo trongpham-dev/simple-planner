@@ -5,6 +5,7 @@ import PageDateTitle from "components/PageDateTitle";
 import Priorities from "components/Priorities";
 import TimeSchedule from "components/TimeSchedule";
 import TodoList from "components/TodoList";
+import { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -38,36 +39,40 @@ const styles = StyleSheet.create({
     height: "50%",
   },
 });
-
-export const Daily1 = () => {
+interface Props {
+  day: Moment;
+}
+export const Daily1 = ({ day }: Props) => {
+  const heading = day.format("DD dddd");
+  const description = day.format("MMMM YYYY");
   return (
-    <Document>
-      <Page size="A4" style={styles.page} orientation="landscape">
-        <View>
-          <PageDateTitle />
+    // <Document>
+    <Page size="A4" style={styles.page} orientation="landscape" wrap={false}>
+      <View>
+        <PageDateTitle heading={heading} description={description} />
+      </View>
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <TimeSchedule />
         </View>
-        <View style={styles.container}>
-          <View style={styles.left}>
-            <TimeSchedule />
+        <View style={styles.center}>
+          <View style={styles.top}>
+            <Priorities />
           </View>
-          <View style={styles.center}>
-            <View style={styles.top}>
-              <Priorities />
-            </View>
-            <View style={styles.bottom}>
-              <TodoList />
-            </View>
-          </View>
-          <View style={styles.right}>
-            <View style={styles.top}>
-              <BlankRowCard />
-            </View>
-            <View style={styles.bottom}>
-              <Notes />
-            </View>
+          <View style={styles.bottom}>
+            <TodoList />
           </View>
         </View>
-      </Page>
-    </Document>
+        <View style={styles.right}>
+          <View style={styles.top}>
+            <BlankRowCard />
+          </View>
+          <View style={styles.bottom}>
+            <Notes />
+          </View>
+        </View>
+      </View>
+    </Page>
+    // </Document>
   );
 };

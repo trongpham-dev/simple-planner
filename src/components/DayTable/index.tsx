@@ -3,6 +3,7 @@ import DayTableBlankRow from "components/DayTable/DayTableBlankRow";
 
 import TimeTableHeader from "components/TimeTable/TimeTableHeader";
 import { COLOR } from "constants/color";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   tableContainer: {
@@ -13,9 +14,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const DayTable = () => (
+interface Props {
+  days: Moment[];
+}
+const DayTable = ({ days }: Props) => (
   <View style={styles.tableContainer}>
-    <TimeTableHeader />
+    <TimeTableHeader days={days} />
     <DayTableBlankRow rowsCount={8} />
   </View>
 );

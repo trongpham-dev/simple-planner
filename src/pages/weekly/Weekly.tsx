@@ -31,6 +31,7 @@ interface Props {
 }
 const Weekly = ({ id, year, month, startDate }: Props) => {
   const weeks = getWeekDates(year, month, startDate);
+  console.log(weeks);
   let firstWeek = 0;
   const elms = weeks.map((w) => (
     <>
