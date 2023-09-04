@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import TimeScheduleRow from "components/TimeSchedule/TimeScheduleRow";
+import DetailHeading from "components/TimeScheduleWithDetailHeading/DetailHeading";
 import { COLOR } from "constants/color";
 import Heading from "pages/weekly/Weekly3/Heading";
 
@@ -18,10 +19,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function TimeSchedule() {
+export default function TimeScheduleWithDetailHeading() {
   return (
     <View style={styles.container}>
-      <Heading title="SCHEDULE" />
+      <DetailHeading />
       <TimeScheduleRow />
       <TimeScheduleRow />
       <TimeScheduleRow />

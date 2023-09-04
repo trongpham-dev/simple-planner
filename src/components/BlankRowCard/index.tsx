@@ -7,17 +7,20 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default function BlankRowCard() {
+type Props = {
+  totalRow: number;
+  customStyles?: any;
+};
+
+export default function BlankRowCard({ totalRow, customStyles }: Props) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyles]}>
       <Heading title="MOVING TO TOMORROW" />
-      <BlankRowItem />
-      <BlankRowItem />
-      <BlankRowItem />
-      <BlankRowItem />
-      <BlankRowItem />
-      <BlankRowItem />
-      <BlankRowItem />
+      {Array(totalRow)
+        .fill(1)
+        .map(() => (
+          <BlankRowItem />
+        ))}
     </View>
   );
 }

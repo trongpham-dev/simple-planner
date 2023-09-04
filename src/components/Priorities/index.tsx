@@ -7,18 +7,19 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default function Priorities() {
+type Props = {
+  totalRow: number;
+};
+
+export default function Priorities({ totalRow }: Props) {
   return (
     <View style={styles.container}>
       <Heading title="WEEK’S PRIORITIES" />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
-      <PriorityRow />
+      {Array(totalRow)
+        .fill(1)
+        .map((_, i) => (
+          <PriorityRow />
+        ))}
     </View>
   );
 }
