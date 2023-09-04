@@ -1,14 +1,11 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 
-import Heading from "pages/weekly/Weekly3/Heading";
-import Notes from "pages/weekly/Weekly3/Notes";
-import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
-import Day from "pages/weekly/Weekly3/Day";
-import PageDateTitle from "components/PageDateTitle";
-import TimeSchedule from "components/TimeSchedule";
-import Priorities from "components/Priorities";
-import TodoList from "components/TodoList";
 import BlankRowCard from "components/BlankRowCard";
+import PageDateTitle from "components/PageDateTitle";
+import Priorities from "components/Priorities";
+import TimeSchedule from "components/TimeSchedule";
+import TodoList from "components/TodoList";
+import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
   page: {
