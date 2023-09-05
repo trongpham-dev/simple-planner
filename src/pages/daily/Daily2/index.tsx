@@ -49,9 +49,7 @@ export const Daily2 = () => {
   return (
     <Document>
       <Page size="A4" style={styles.page} orientation="landscape">
-        <View>
-          <PageDateTitle />
-        </View>
+        <View>{/* <PageDateTitle /> */}</View>
         <View style={styles.container}>
           <View style={styles.left}>
             <TimeScheduleWithDetailHeading />
@@ -64,7 +62,10 @@ export const Daily2 = () => {
               <Priorities totalRow={5} />
             </View>
             <View style={styles.bottom}>
-              <BlankRowCard totalRow={5} customStyles={{ backgroundColor: COLOR.EXTRA_LIGHT_BROWN }} />
+              <BlankRowCard
+                totalRow={5}
+                customStyles={{ backgroundColor: COLOR.EXTRA_LIGHT_BROWN }}
+              />
             </View>
           </View>
           <View style={styles.right}>

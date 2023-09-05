@@ -1,5 +1,13 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Font, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
+import clashDisplay from "../../assets/fonts/ClashDisplay-Regular.ttf";
+
+Font.register({
+  family: "Clash Display",
+  format: "truetype",
+  fontWeight: "normal",
+  src: clashDisplay,
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -7,7 +15,9 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
   heading: {
-    fontStyle: "bold",
+    fontFamily: "Clash Display",
+    fontStyle: "normal",
+    fontWeight: 700,
     fontSize: 30,
     marginBottom: 4,
   },

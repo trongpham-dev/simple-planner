@@ -41,7 +41,11 @@ interface Props {
 
 const TimeTableHeader = ({ days }: Props) => {
   const elms = days.map((day, i) => (
-    <TimeTableHeaderItem withoutBorder={i === 6 ? true : false} day={day} />
+    <TimeTableHeaderItem
+      key={i}
+      withoutBorder={i === 6 ? true : false}
+      day={day}
+    />
   ));
   return <View style={styles.container}>{elms}</View>;
 };

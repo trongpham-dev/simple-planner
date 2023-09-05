@@ -102,8 +102,8 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
             </View>
           </View>
         </Page>
-        {w.map((d) => (
-          <Daily1 day={d} />
+        {w.map((d, i) => (
+          <Daily1 key={i} day={d} />
         ))}
       </>
     );

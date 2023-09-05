@@ -33,7 +33,6 @@ type Props = {
 };
 
 const TimeTableHeaderItem = ({ withoutBorder = false, day }: Props) => {
-  console.log(day);
   return (
     <View
       style={withoutBorder ? styles.withoutBorderContainer : styles.container}

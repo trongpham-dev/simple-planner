@@ -38,9 +38,7 @@ export const Weekly1 = () => {
   return (
     <Document>
       <Page size="A4" style={styles.page} orientation="landscape">
-        <View>
-          <PageDateTitle />
-        </View>
+        <View>{/* <PageDateTitle /> */}</View>
         <View style={styles.container}>
           <View style={styles.top}>
             <View style={styles.card}>
