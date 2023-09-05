@@ -18,7 +18,7 @@ export default function Priorities({ totalRow }: Props) {
       {Array(totalRow)
         .fill(1)
         .map((_, i) => (
-          <PriorityRow />
+          <PriorityRow key={i} />
         ))}
     </View>
   );

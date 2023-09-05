@@ -3,7 +3,7 @@ import { COLOR } from "constants/color";
 
 const styles = StyleSheet.create({
   container: {
-    fontStyle: "bold",
+    fontStyle: "normal",
     color: COLOR.BROWN,
     width: "100%",
     fontSize: 12,

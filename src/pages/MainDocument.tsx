@@ -31,7 +31,7 @@ const MainDocument = () => {
     <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
   ));
 
-  return <Document>{elms}</Document>;
+  return <Document style={{fontFamily: "Clash Display"}}>{elms}</Document>;
 };
 
 export default MainDocument;

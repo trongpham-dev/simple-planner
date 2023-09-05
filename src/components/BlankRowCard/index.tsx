@@ -18,8 +18,8 @@ export default function BlankRowCard({ totalRow, customStyles }: Props) {
       <Heading title="MOVING TO TOMORROW" />
       {Array(totalRow)
         .fill(1)
-        .map(() => (
-          <BlankRowItem />
+        .map((_, i) => (
+          <BlankRowItem key={i} />
         ))}
     </View>
   );

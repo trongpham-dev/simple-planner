@@ -18,7 +18,7 @@ export default function TodoList({ totalRow }: Props) {
       {Array(totalRow)
         .fill(1)
         .map((_, i) => (
-          <ToDoListItem />
+          <ToDoListItem key={i} />
         ))}
     </View>
   );

@@ -68,9 +68,9 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
   const elms = weeks.map((w) => {
     const currMonth = moment().month(month).format("MMMM");
     const heading = moment().year(year).month(month).format("MMMM YYYY");
-    const description = `${w[0].date()} ${currMonth} - ${w[
+    const description = `${w[0].format("DD")} ${currMonth} - ${w[
       w.length - 1
-    ].date()} ${currMonth}`;
+    ].format("DD")} ${currMonth}`;
     return (
       <>
         <Page

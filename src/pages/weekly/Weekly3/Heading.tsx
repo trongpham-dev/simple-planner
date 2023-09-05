@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     borderBottomColor: COLOR.BROWN,
     borderBottomWidth: 1,
-    fontStyle: "bold",
+    fontStyle: "normal",
     color: COLOR.BROWN,
     width: "100%",
     paddingBottom: 4,
