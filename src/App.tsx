@@ -4,13 +4,20 @@ import { months } from "common/dayTimeUtils";
 import MainDocument from "pages/MainDocument";
 import { Weekly4 } from "pages/weekly/Weekly4";
 
-import clashDisplay from "./assets/fonts/ClashDisplay-Regular.ttf";
+import clashDisplayRegular from "./assets/fonts/ClashDisplay-Regular.ttf";
+import clashDisplayBold from "./assets/fonts/ClashDisplay-Bold.ttf";
+import clashDisplaySemiBold from "./assets/fonts/ClashDisplay-Semibold.ttf";
+import clashDisplayMedium from "./assets/fonts/ClashDisplay-Medium.ttf";
 
 Font.register({
   family: "Clash Display",
   format: "truetype",
-  fontWeight: "normal",
-  src: clashDisplay,
+  fonts: [
+    { src: clashDisplayRegular, fontWeight: "normal" },
+    { src: clashDisplayBold, fontWeight: "bold" },
+    { src: clashDisplayMedium, fontWeight: "medium" },
+    { src: clashDisplaySemiBold, fontWeight: "semibold" },
+  ],
 });
 
 function App() {

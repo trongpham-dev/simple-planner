@@ -20,10 +20,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 12,
+    fontWeight: 400,
   },
   number: {
     fontSize: 12,
     marginRight: 3,
+    fontWeight: 600,
   },
 });
 

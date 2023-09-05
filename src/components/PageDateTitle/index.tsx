@@ -7,8 +7,7 @@ const styles = StyleSheet.create({
     paddingBottom: 8,
   },
   heading: {
-    fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: 500,
     fontSize: 30,
     marginBottom: 4,
     textTransform: "uppercase",
@@ -16,6 +15,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     textTransform: "uppercase",
+    fontWeight: 400,
   },
 });
 
