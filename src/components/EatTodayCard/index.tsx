@@ -1,4 +1,7 @@
-import { StyleSheet, View } from "@react-pdf/renderer";
+import { Image, Path, StyleSheet, Svg, View } from "@react-pdf/renderer";
+import { WaterIcon } from "assets/images/svg-icons";
+import BlankRowItem from "components/BlankRowCard/BlankRowItem";
+import BlankRowItemWithIcon from "components/BlankRowCard/BlankRowItemWithIcon";
 import { COLOR } from "constants/color";
 
 import Heading from "pages/weekly/Weekly3/Heading";
@@ -13,10 +16,21 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function EatTodayCard() {
+type Props = {
+  totalRow: number;
+};
+
+export default function EatTodayCard({ totalRow }: Props) {
   return (
     <View style={[styles.container]}>
-      <Heading title="MAIN FOCUS" />
+      <Heading title="WHAT I EAT TODAY?" />
+      {Array(totalRow)
+        .fill(1)
+        .map((_, i) => (
+          <BlankRowItem key={i} />
+        ))}
+      {/* <Image src={WaterIcon} /> */}
+      <BlankRowItemWithIcon />
     </View>
   );
 }

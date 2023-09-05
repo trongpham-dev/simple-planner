@@ -4,7 +4,9 @@ import BlankRowItem from "components/BlankRowCard/BlankRowItem";
 import Heading from "pages/weekly/Weekly3/Heading";
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 8,
+  },
 });
 
 type Props = {
