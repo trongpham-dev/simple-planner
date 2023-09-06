@@ -4,6 +4,7 @@ import PageDateTitle from "components/PageDateTitle";
 import TodoCard from "components/TodoCard";
 import moment from "moment";
 import { Daily1 } from "pages/daily/Daily1";
+import { Daily2 } from "pages/daily/Daily2";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -103,7 +104,7 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
           </View>
         </Page>
         {w.map((d, i) => (
-          <Daily1 key={i} day={d} />
+          <Daily2 key={i} day={d} />
         ))}
       </>
     );

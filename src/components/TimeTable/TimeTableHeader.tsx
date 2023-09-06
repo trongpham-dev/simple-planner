@@ -13,9 +13,10 @@ const styles = StyleSheet.create({
     height: 24,
     textAlign: "center",
     fontStyle: "normal",
-    fontWeight: 700,
     flexGrow: 1,
     color: COLOR.WHITE,
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   monday: {
     width: "15%",

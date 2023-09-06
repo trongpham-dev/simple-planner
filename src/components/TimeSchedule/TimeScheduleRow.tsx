@@ -25,11 +25,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function TimeScheduleRow() {
+interface Props {
+  timeSchedule: string;
+}
+
+export default function TimeScheduleRow({ timeSchedule }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.time} debug={false}>
-        <Text>6:00</Text>
+        <Text>{timeSchedule}</Text>
       </View>
     </View>
   );

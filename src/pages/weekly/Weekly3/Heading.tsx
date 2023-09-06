@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingBottom: 4,
     fontSize: 12,
-    fontWeight: 700,
+    fontWeight: 600,
   },
 });
 

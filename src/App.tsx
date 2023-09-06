@@ -1,4 +1,9 @@
-import { Font, PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  PDFDownloadLink,
+  PDFViewer,
+} from "@react-pdf/renderer";
 
 import { months } from "common/dayTimeUtils";
 import MainDocument from "pages/MainDocument";
@@ -8,7 +13,6 @@ import clashDisplayRegular from "./assets/fonts/ClashDisplay-Regular.ttf";
 import clashDisplayBold from "./assets/fonts/ClashDisplay-Bold.ttf";
 import clashDisplaySemiBold from "./assets/fonts/ClashDisplay-Semibold.ttf";
 import clashDisplayMedium from "./assets/fonts/ClashDisplay-Medium.ttf";
-import { Daily2 } from "pages/daily/Daily2";
 
 Font.register({
   family: "Clash Display",
@@ -22,16 +26,18 @@ Font.register({
 });
 
 function App() {
-  const elms = months.map((m) => <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />);
+  const elms = months.map((m) => (
+    <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
+  ));
 
   return (
     <PDFViewer className="w-full h-full">
       {/* <Weekly2 /> */}
       {/* <Weekly3 /> */}
       {/* <Document>{elms}</Document> */}
-      {/* <MainDocument /> */}
+      <MainDocument />
       {/* <Daily1 /> */}
-      <Daily2 />
+      {/* <Daily2 /> */}
     </PDFViewer>
 
     // <PDFDownloadLink document={<MainDocument />} fileName="somename.pdf">

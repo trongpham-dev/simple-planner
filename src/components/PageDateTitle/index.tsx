@@ -8,12 +8,11 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontWeight: 500,
-    fontSize: 30,
+    fontSize: 32,
     marginBottom: 4,
-    textTransform: "uppercase",
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     textTransform: "uppercase",
     fontWeight: 400,
   },

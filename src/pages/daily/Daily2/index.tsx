@@ -8,6 +8,7 @@ import Priorities from "components/Priorities";
 import TimeScheduleWithDetailHeading from "components/TimeScheduleWithDetailHeading";
 import TodoList from "components/TodoList";
 import { COLOR } from "constants/color";
+import { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -47,42 +48,51 @@ const styles = StyleSheet.create({
     height: "35%",
   },
 });
+interface Props {
+  day: Moment;
+}
 
-export const Daily2 = () => {
+export const Daily2 = ({ day }: Props) => {
+  const heading = day.format("DD dddd");
+  const description = day.format("MMMM YYYY");
   return (
-    <Document>
-      <Page size="A4" style={styles.page} orientation="landscape">
-        <View>
-          <PageDateTitle heading={"07 MONDAY"} description={"August 2023"} />
+    <Page size="A4" style={styles.page} orientation="landscape">
+      <View>
+        <PageDateTitle heading={heading} description={description} />
+      </View>
+      <View style={styles.container}>
+        <View style={styles.left}>
+          <TimeScheduleWithDetailHeading />
         </View>
-        <View style={styles.container}>
-          <View style={styles.left}>
-            <TimeScheduleWithDetailHeading />
+        <View style={styles.center}>
+          <View style={styles.top}>
+            <MainFocusCard />
           </View>
-          <View style={styles.center}>
-            <View style={styles.top}>
-              <MainFocusCard />
-            </View>
-            <View style={styles.middle}>
-              <Priorities totalRow={5} />
-            </View>
-            <View style={styles.bottom}>
-              <BlankRowCard totalRow={5} customStyles={{ backgroundColor: COLOR.EXTRA_LIGHT_BROWN, paddingVertical: 8 }} />
-            </View>
+          <View style={styles.middle}>
+            <Priorities totalRow={5} />
           </View>
-          <View style={styles.right}>
-            <View style={styles.top}>
-              <EatTodayCard totalRow={3} />
-            </View>
-            <View style={styles.middle}>
-              <TodoList totalRow={5} />
-            </View>
-            <View style={styles.bottom}>
-              <Notes />
-            </View>
+          <View style={styles.bottom}>
+            <BlankRowCard
+              totalRow={5}
+              customStyles={{
+                backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
+                paddingVertical: 8,
+              }}
+            />
           </View>
         </View>
-      </Page>
-    </Document>
+        <View style={styles.right}>
+          <View style={styles.top}>
+            <EatTodayCard totalRow={3} />
+          </View>
+          <View style={styles.middle}>
+            <TodoList totalRow={5} />
+          </View>
+          <View style={styles.bottom}>
+            <Notes />
+          </View>
+        </View>
+      </View>
+    </Page>
   );
 };

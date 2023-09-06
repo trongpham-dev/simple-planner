@@ -23,23 +23,23 @@ export default function TimeScheduleWithDetailHeading() {
   return (
     <View style={styles.container}>
       <DetailHeading />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
-      <TimeScheduleRow />
+      <TimeScheduleRow timeSchedule="6:00" />
+      <TimeScheduleRow timeSchedule="7:00" />
+      <TimeScheduleRow timeSchedule="8:00" />
+      <TimeScheduleRow timeSchedule="9:00" />
+      <TimeScheduleRow timeSchedule="10:00" />
+      <TimeScheduleRow timeSchedule="11:00" />
+      <TimeScheduleRow timeSchedule="12:00" />
+      <TimeScheduleRow timeSchedule="1:00" />
+      <TimeScheduleRow timeSchedule="2:00" />
+      <TimeScheduleRow timeSchedule="3:00" />
+      <TimeScheduleRow timeSchedule="4:00" />
+      <TimeScheduleRow timeSchedule="5:00" />
+      <TimeScheduleRow timeSchedule="6:00" />
+      <TimeScheduleRow timeSchedule="7:00" />
+      <TimeScheduleRow timeSchedule="8:00" />
+      <TimeScheduleRow timeSchedule="9:00" />
+      <TimeScheduleRow timeSchedule="10:00" />
     </View>
   );
 }

@@ -46,7 +46,6 @@ export const Daily1 = ({ day }: Props) => {
   const heading = day.format("DD dddd");
   const description = day.format("MMMM YYYY");
   return (
-    // <Document>
     <Page size="A4" style={styles.page} orientation="landscape" wrap={false}>
       <View>
         <PageDateTitle heading={heading} description={description} />
@@ -86,6 +85,5 @@ export const Daily1 = ({ day }: Props) => {
         </View>
       </View>
     </Page>
-    // </Document>
   );
 };
