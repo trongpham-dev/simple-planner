@@ -6,4 +6,6 @@ export const COLOR = {
   BROWN: "#907B62",
   LIGHT_GRAY: "#f7f5f3",
   WHITE: "#ffffff",
+  WHITE_2: "#feffff",
+  GRAY: "#e8e7e6",
 };
