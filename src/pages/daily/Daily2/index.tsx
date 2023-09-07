@@ -70,52 +70,50 @@ export const Daily2 = ({ day }: Props) => {
   const heading = day.format("DD dddd");
   const description = day.format("MMMM YYYY");
   return (
-    <Document>
-      <Page size="A4" style={styles.page} orientation="landscape">
-        <View style={styles.wrapper}>
-          <View style={styles.main}>
-            <View>
-              <PageDateTitle heading={heading} description={description} />
-            </View>
-            <View style={styles.container}>
-              <View style={styles.left}>
-                <TimeScheduleWithDetailHeading />
-              </View>
-              <View style={styles.center}>
-                <View style={styles.top}>
-                  <MainFocusCard />
-                </View>
-                <View style={styles.middle}>
-                  <Priorities totalRow={5} />
-                </View>
-                <View style={styles.bottom}>
-                  <BlankRowCard
-                    totalRow={5}
-                    customStyles={{
-                      backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
-                      paddingVertical: 8,
-                    }}
-                  />
-                </View>
-              </View>
-              <View style={styles.right}>
-                <View style={styles.top}>
-                  <EatTodayCard totalRow={3} />
-                </View>
-                <View style={styles.middle}>
-                  <TodoList totalRow={5} />
-                </View>
-                <View style={styles.bottom}>
-                  <Notes />
-                </View>
-              </View>
-            </View>
+    <Page size="A4" style={styles.page} orientation="landscape">
+      <View style={styles.wrapper}>
+        <View style={styles.main}>
+          <View>
+            <PageDateTitle heading={heading} description={description} />
           </View>
-          <View style={styles.sidebar}>
-            <Sidebar />
+          <View style={styles.container}>
+            <View style={styles.left}>
+              <TimeScheduleWithDetailHeading />
+            </View>
+            <View style={styles.center}>
+              <View style={styles.top}>
+                <MainFocusCard />
+              </View>
+              <View style={styles.middle}>
+                <Priorities totalRow={5} />
+              </View>
+              <View style={styles.bottom}>
+                <BlankRowCard
+                  totalRow={5}
+                  customStyles={{
+                    backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
+                    paddingVertical: 8,
+                  }}
+                />
+              </View>
+            </View>
+            <View style={styles.right}>
+              <View style={styles.top}>
+                <EatTodayCard totalRow={3} />
+              </View>
+              <View style={styles.middle}>
+                <TodoList totalRow={5} />
+              </View>
+              <View style={styles.bottom}>
+                <Notes />
+              </View>
+            </View>
           </View>
         </View>
-      </Page>
-    </Document>
+        <View style={styles.sidebar}>
+          <Sidebar />
+        </View>
+      </View>
+    </Page>
   );
 };

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
 
 const styles = StyleSheet.create({
@@ -19,10 +19,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function SidebarMonthItem() {
+interface Props {
+  month: string;
+  src: string;
+}
+
+export default function SidebarMonthItem({ month, src }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>JAN</Text>
+      <Link src={src}>
+        <Text style={styles.text}>{month}</Text>
+      </Link>
     </View>
   );
 }
