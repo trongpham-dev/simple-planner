@@ -1,6 +1,7 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
+import Sidebar from "components/Sidebar";
 import TodoCard from "components/TodoCard";
 import moment from "moment";
 import { Daily1 } from "pages/daily/Daily1";
@@ -9,10 +10,23 @@ import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 10,
-    paddingRight: 15,
     paddingLeft: 15,
+    fontFamily: "Clash Display",
+  },
+  wrapper: {
+    width: "100%",
+    flexDirection: "row",
+  },
+  main: {
+    paddingTop: 10,
     paddingBottom: 20,
+    paddingRight: 8,
+    flexGrow: 1,
+  },
+  sidebar: {
+    width: "5%",
+    height: "100%",
+    marginLeft: 4,
   },
   heading: {
     marginBottom: 6,
@@ -69,40 +83,42 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
   const elms = weeks.map((w) => {
     const currMonth = moment().month(month).format("MMMM");
     const heading = moment().year(year).month(month).format("MMMM YYYY");
-    const description = `${w[0].format("DD")} ${currMonth} - ${w[
-      w.length - 1
-    ].format("DD")} ${currMonth}`;
+    const description = `${w[0].format("DD")} ${currMonth} - ${w[w.length - 1].format("DD")} ${currMonth}`;
+
     return (
       <>
-        <Page
-          size="A4"
-          style={styles.page}
-          wrap={false}
-          orientation="landscape"
-          id={`${String(id)}-${String(firstWeek++)}`}
-        >
-          <View style={styles.heading}>
-            <PageDateTitle heading={heading} description={`${description}`} />
-          </View>
+        <Page size="A4" style={styles.page} wrap={false} orientation="landscape" id={`${String(id)}-${String(firstWeek++)}`}>
+          <View style={styles.wrapper}>
+            <View style={styles.main}>
+              <View style={styles.heading}>
+                <PageDateTitle heading={heading} description={`${description}`} />
+              </View>
 
-          <View style={styles.container}>
-            <View style={styles.top}>
-              <DayTable days={w} />
+              <View style={styles.container}>
+                <View style={styles.top}>
+                  <DayTable days={w} />
+                </View>
+
+                <View style={styles.bottom}>
+                  <View style={styles.todoCard}>
+                    <TodoCard />
+                  </View>
+                  <View style={styles.todoCard}>
+                    <TodoCard />
+                  </View>
+                  <View style={styles.note}>
+                    <Notes />
+                  </View>
+                </View>
+              </View>
             </View>
 
-            <View style={styles.bottom}>
-              <View style={styles.todoCard}>
-                <TodoCard />
-              </View>
-              <View style={styles.todoCard}>
-                <TodoCard />
-              </View>
-              <View style={styles.note}>
-                <Notes />
-              </View>
+            <View style={styles.sidebar}>
+              <Sidebar />
             </View>
           </View>
         </Page>
+
         {w.map((d, i) => (
           <Daily2 key={i} day={d} />
         ))}

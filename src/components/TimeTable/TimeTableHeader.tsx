@@ -15,8 +15,6 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     flexGrow: 1,
     color: COLOR.WHITE,
-    paddingTop: 4,
-    paddingBottom: 4,
   },
   monday: {
     width: "15%",
@@ -42,13 +40,7 @@ interface Props {
 }
 
 const TimeTableHeader = ({ days }: Props) => {
-  const elms = days.map((day, i) => (
-    <TimeTableHeaderItem
-      key={i}
-      withoutBorder={i === 6 ? true : false}
-      day={day}
-    />
-  ));
+  const elms = days.map((day, i) => <TimeTableHeaderItem key={i} withoutBorder={i === 6 ? true : false} day={day} />);
   return <View style={styles.container}>{elms}</View>;
 };
 

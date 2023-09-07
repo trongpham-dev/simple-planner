@@ -4,7 +4,9 @@ import ToDoListItem from "components/TodoList/ToDoListItem";
 import Heading from "pages/weekly/Weekly3/Heading";
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingTop: 8,
+  },
 });
 
 type Props = {

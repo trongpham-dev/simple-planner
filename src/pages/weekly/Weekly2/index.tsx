@@ -18,7 +18,9 @@ export const Weekly2 = () => {
   return (
     <Document>
       <Page size="A4" style={styles.page} orientation="landscape">
-        <View style={styles.heading}>{/* <PageDateTitle /> */}</View>
+        <View style={styles.heading}>
+          <PageDateTitle heading="August 2023" description="07 august - 13 August" />
+        </View>
         <TimeTable />
       </Page>
     </Document>
