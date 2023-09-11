@@ -4,6 +4,22 @@
 
 body {
   height: 100vh;
+
+  .black-btn {
+    background: #0d0d0d;
+    width: 200px;
+    height: 48px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .black-btn:hover {
+    background: #0d0d0d !important;
+  }
+
+  .black-btn:disabled {
+    background: #e1e1e1 !important;
+  }
 }
 
 #root {
