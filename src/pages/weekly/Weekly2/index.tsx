@@ -1,6 +1,9 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { getWeekDates } from "common/dayTimeUtils";
 import PageDateTitle from "components/PageDateTitle";
 import TimeTable from "components/TimeTable";
+import moment from "moment";
+import { Daily1 } from "pages/daily/Daily1";
 
 const styles = StyleSheet.create({
   page: {
@@ -14,15 +17,39 @@ const styles = StyleSheet.create({
   },
 });
 
-export const Weekly2 = () => {
-  return (
-    <Document>
-      <Page size="A4" style={styles.page} orientation="landscape">
-        <View style={styles.heading}>
-          <PageDateTitle heading="August 2023" description="07 august - 13 August" />
-        </View>
-        <TimeTable />
-      </Page>
-    </Document>
-  );
+interface Props {
+  id: number;
+  year: number;
+  month: number;
+  startDate: number;
+}
+
+export const Weekly2 = ({ id, year, month, startDate }: Props) => {
+  const weeks = getWeekDates(year, month, startDate);
+  let firstWeek = 0;
+  const elms = weeks.map((w) => {
+    const heading = moment().year(year).month(month).format("MMMM YYYY");
+    const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
+      "DD MMMM"
+    )}`;
+    return (
+      <>
+        <Page
+          size="A4"
+          style={styles.page}
+          orientation="landscape"
+          id={`${String(id)}-${String(firstWeek++)}`}
+        >
+          <View style={styles.heading}>
+            <PageDateTitle heading={heading} description={description} />
+          </View>
+          <TimeTable />
+        </Page>
+        {w.map((d, i) => (
+          <Daily1 key={i} day={d} />
+        ))}
+      </>
+    );
+  });
+  return elms;
 };

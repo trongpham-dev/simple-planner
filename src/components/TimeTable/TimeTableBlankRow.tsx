@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    top: 15,
+    top: 6,
     left: -40,
   },
 });
@@ -46,10 +46,11 @@ type Props = {
 
 const TimeTableBlankRow = ({ rowsCount }: Props) => {
   const blankRows = Array(rowsCount).fill(0);
+  let startAt = 6;
   const rows = blankRows.map((x, i) => (
     <View style={styles.row} debug={false} key={i}>
       <View style={styles.time} debug={false}>
-        <Text>6:00</Text>
+        <Text>`${startAt++}:00`</Text>
       </View>
 
       <View style={styles.monday}></View>

@@ -2,6 +2,7 @@ import { Document, PDFViewer, Page, View } from "@react-pdf/renderer";
 import Weekly from "./weekly/Weekly";
 import moment from "moment/moment";
 import { Weekly4 } from "./weekly/Weekly4";
+import { Weekly2 } from "./weekly/Weekly2";
 
 const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
@@ -27,11 +28,15 @@ const MainDocument = () => {
   //   <Weekly id={m} year={2023} month={m} startDate={1} key={m} />
   // ));
 
+  // const elms = months.map((m) => (
+  //   <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
+  // ));
+
   const elms = months.map((m) => (
-    <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
+    <Weekly2 id={m} year={2023} month={m} startDate={1} key={m} />
   ));
 
-  return <Document style={{fontFamily: "Clash Display"}}>{elms}</Document>;
+  return <Document style={{ fontFamily: "Clash Display" }}>{elms}</Document>;
 };
 
 export default MainDocument;

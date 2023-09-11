@@ -17,6 +17,7 @@ import { Daily2 } from "pages/daily/Daily2";
 import moment from "moment";
 import { Daily1 } from "pages/daily/Daily1";
 import { Weekly2 } from "pages/weekly/Weekly2";
+import { Weekly1 } from "pages/weekly/Weekly1";
 
 Font.register({
   family: "Clash Display",
@@ -31,7 +32,7 @@ Font.register({
 
 function App() {
   const elms = months.map((m) => (
-    <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
+    <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />
   ));
 
   return (
