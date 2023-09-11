@@ -81,17 +81,27 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
   const weeks = getWeekDates(year, month, startDate);
   let firstWeek = 0;
   const elms = weeks.map((w) => {
-    const currMonth = moment().month(month).format("MMMM");
     const heading = moment().year(year).month(month).format("MMMM YYYY");
-    const description = `${w[0].format("DD")} ${currMonth} - ${w[w.length - 1].format("DD")} ${currMonth}`;
+    const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
+      "DD MMMM"
+    )}`;
 
     return (
       <>
-        <Page size="A4" style={styles.page} wrap={false} orientation="landscape" id={`${String(id)}-${String(firstWeek++)}`}>
+        <Page
+          size="A4"
+          style={styles.page}
+          wrap={false}
+          orientation="landscape"
+          id={`${String(id)}-${String(firstWeek++)}`}
+        >
           <View style={styles.wrapper}>
             <View style={styles.main}>
               <View style={styles.heading}>
-                <PageDateTitle heading={heading} description={`${description}`} />
+                <PageDateTitle
+                  heading={heading}
+                  description={`${description}`}
+                />
               </View>
 
               <View style={styles.container}>

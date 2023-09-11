@@ -1,4 +1,9 @@
-import { Document, Font, PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import {
+  Document,
+  Font,
+  PDFDownloadLink,
+  PDFViewer,
+} from "@react-pdf/renderer";
 
 import { months } from "common/dayTimeUtils";
 import MainDocument from "pages/MainDocument";
@@ -25,20 +30,22 @@ Font.register({
 });
 
 function App() {
-  const elms = months.map((m) => <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />);
+  const elms = months.map((m) => (
+    <Weekly4 id={m} year={2023} month={m} startDate={1} key={m} />
+  ));
 
   return (
     <PDFViewer className="w-full h-full">
       {/* <Weekly3 /> */}
-      {/* <Document>{elms}</Document> */}
+      <Document>{elms}</Document>
       {/* <MainDocument /> */}
       {/* <Weekly2 /> */}
 
-      <Document>
+      {/* <Document>
         <Weekly4 id={1} month={2} year={2023} startDate={2} />
 
-        {/* <Daily1 day={moment()} /> */}
-      </Document>
+        <Daily1 day={moment()} />
+      </Document> */}
 
       {/* <Daily2 day={moment()} /> */}
     </PDFViewer>

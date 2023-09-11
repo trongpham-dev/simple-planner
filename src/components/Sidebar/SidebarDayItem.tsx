@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
     fontSize: 10,
     transform: "rotate(90deg)",
   },
+  link: {
+    textDecoration: "none",
+    color: "#3D3429",
+  },
 });
 
 interface Props {
@@ -27,7 +31,7 @@ interface Props {
 export default function SidebarMonthItem({ month, src }: Props) {
   return (
     <View style={styles.container}>
-      <Link src={src}>
+      <Link src={src} style={styles.link}>
         <Text style={styles.text}>{month}</Text>
       </Link>
     </View>
