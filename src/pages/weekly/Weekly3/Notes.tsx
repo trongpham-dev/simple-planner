@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     color: COLOR.BROWN,
     width: "100%",
     height: "100%",
-    paddingVertical: 8,
+    paddingVertical: 0,
     paddingHorizontal: 8,
     backgroundColor: COLOR.LIGHT_BROWN,
   },

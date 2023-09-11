@@ -10,11 +10,19 @@ import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 10,
-    paddingRight: 15,
     paddingLeft: 15,
-    paddingBottom: 20,
     fontFamily: "Clash Display",
+  },
+  wrapper: {
+    width: "100%",
+    flexDirection: "row",
+  },
+  main: {
+    width: "95%",
+    paddingTop: 10,
+    paddingBottom: 20,
+    paddingRight: 8,
+    flexGrow: 1,
   },
   heading: {
     marginBottom: 6,
@@ -71,36 +79,40 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
           id={`${String(id)}-${String(firstWeek++)}`}
           wrap={false}
         >
-          <View style={styles.heading}>
-            <PageDateTitle heading={heading} description={description} />
-          </View>
-          <View style={styles.container}>
-            <View style={styles.top}>
-              <View style={styles.card}>
-                <DayCard />
+          <View style={styles.wrapper}>
+            <View style={styles.main}>
+              <View style={styles.heading}>
+                <PageDateTitle heading={heading} description={description} />
               </View>
-              <View style={styles.card}>
-                <DayCard />
-              </View>
-              <View style={styles.card}>
-                <DayCard />
-              </View>
-              <View style={[styles.card, styles.withoutMargin]}>
-                <DayCard />
-              </View>
-            </View>
-            <View style={styles.bottom}>
-              <View style={styles.card}>
-                <DayCard />
-              </View>
-              <View style={styles.card}>
-                <DayCard />
-              </View>
-              <View style={styles.card}>
-                <DayCard />
-              </View>
-              <View style={[styles.card, styles.withoutMargin]}>
-                <Notes />
+              <View style={styles.container}>
+                <View style={styles.top}>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={[styles.card, styles.withoutMargin]}>
+                    <DayCard />
+                  </View>
+                </View>
+                <View style={styles.bottom}>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={styles.card}>
+                    <DayCard />
+                  </View>
+                  <View style={[styles.card, styles.withoutMargin]}>
+                    <Notes />
+                  </View>
+                </View>
               </View>
             </View>
             <View style={styles.sidebar}>
