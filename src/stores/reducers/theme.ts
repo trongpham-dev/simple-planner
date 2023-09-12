@@ -3,8 +3,8 @@ import { ColorType, Orientation } from "models/enum";
 
 import { AppState } from "stores";
 
-type ThemeState = {
-  color: ColorType;
+export type ThemeState = {
+  color: string;
   orientation?: Orientation;
 };
 
@@ -17,7 +17,7 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    changeColor(state, action: PayloadAction<ColorType>) {
+    changeColor(state, action: PayloadAction<string>) {
       state.color = action.payload;
     },
 
@@ -31,7 +31,8 @@ export const themeSlice = createSlice({
   },
 });
 
-export const { changeColor, changeOrientation, resetOrientation } = themeSlice.actions;
+export const { changeColor, changeOrientation, resetOrientation } =
+  themeSlice.actions;
 
 export default themeSlice.reducer;
 

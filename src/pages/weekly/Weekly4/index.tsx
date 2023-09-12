@@ -1,4 +1,5 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { getWeekDates } from "common/dayTimeUtils";
 import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
@@ -53,22 +54,6 @@ const styles = StyleSheet.create({
     height: "158",
   },
 });
-
-const getWeekDates = (year: number, month: number, dayOfWeek: number) => {
-  let weeks = [];
-  let firstDay = moment([year, month]).startOf("month");
-  let lastDay = moment([year, month]).endOf("month");
-  let week = firstDay.clone().day(dayOfWeek);
-  while (week.isBefore(lastDay)) {
-    let days = [];
-    for (let i = 0; i < 7; i++) {
-      days.push(week.clone().add(i, "d"));
-    }
-    weeks.push(days);
-    week.add(7, "d");
-  }
-  return weeks;
-};
 
 interface Props {
   id: number;

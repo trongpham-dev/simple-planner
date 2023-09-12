@@ -8,3 +8,15 @@ export enum Orientation {
   Portrait = "Portrait",
   Landscape = "Landscape",
 }
+
+export enum WeeklyType {
+  Boxed = "Boxed",
+  Hourly = "Hourly",
+  Lined = "Lined",
+  Vertical = "Vertical",
+}
+
+export enum DailyType {
+  Minimal = "Minimal",
+  Structured = "Structured",
+}
