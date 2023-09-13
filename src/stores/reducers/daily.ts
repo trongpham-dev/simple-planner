@@ -3,7 +3,7 @@ import { DailyType } from "models/enum";
 import { AppState } from "stores";
 
 export interface DailyState {
-  dailyLayout: string;
+  dailyLayout: DailyType;
 }
 
 const initialState: DailyState = {
@@ -14,7 +14,7 @@ export const dailySlice = createSlice({
   name: "daily",
   initialState,
   reducers: {
-    changeDailyLayout(state, action: PayloadAction<string>) {
+    changeDailyLayout(state, action: PayloadAction<DailyType>) {
       state.dailyLayout = action.payload;
     },
   },

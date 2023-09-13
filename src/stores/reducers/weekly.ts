@@ -3,7 +3,7 @@ import { WeeklyType } from "models/enum";
 import { AppState } from "stores";
 
 export interface WeeklyState {
-  weeklyLayout: string;
+  weeklyLayout: WeeklyType;
 }
 
 const initialState: WeeklyState = {
@@ -14,7 +14,7 @@ export const weeklySlice = createSlice({
   name: "weekly",
   initialState,
   reducers: {
-    changeWeeklyLayout(state, action: PayloadAction<string>) {
+    changeWeeklyLayout(state, action: PayloadAction<WeeklyType>) {
       state.weeklyLayout = action.payload;
     },
   },

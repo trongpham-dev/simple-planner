@@ -8,6 +8,8 @@ import { SelectDailyLayout } from "./ChooseDailyLayout";
 import { ExportPlanner } from "./ExportPlanner";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import MainDocument from "pages/MainDocument";
+import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowRightOutlined } from "@ant-design/icons";
 import { store } from "stores";
 
 type Props = {
@@ -24,6 +26,7 @@ export default function Main({ className }: Props) {
   const handleNextStep = () => {
     dispatch(nextStep());
   };
+
   const handlePrevStep = () => {
     dispatch(prevStep());
   };
@@ -51,30 +54,24 @@ export default function Main({ className }: Props) {
             }
             fileName="somename.pdf"
           >
-            {({ blob, url, loading, error }) =>
-              loading ? "Loading document..." : "DOWNLOAD HERE"
-            }
+            {({ blob, url, loading, error }) => (loading ? "Loading document..." : "DOWNLOAD HERE")}
           </PDFDownloadLink>
         </Button>
       );
     return (
       <div className="mt-[92px] flex gap-5">
-        <Button
-          type="primary"
-          className="black-btn"
-          onClick={handlePrevStep}
-          disabled={step === 1}
-        >
-          Back
+        <Button type="primary" className="black-btn" onClick={handlePrevStep} disabled={step === 1}>
+          <div className="flex items-center gap-3 justify-center">
+            <ArrowLeftOutlined />
+            <span>Back</span>
+          </div>
         </Button>
 
-        <Button
-          type="primary"
-          className="black-btn"
-          disabled={step === 4}
-          onClick={handleNextStep}
-        >
-          Next
+        <Button type="primary" className="black-btn" disabled={step === 4} onClick={handleNextStep}>
+          <div className="flex items-center gap-3 justify-center">
+            <span>Next</span>
+            <ArrowRightOutlined />
+          </div>
         </Button>
       </div>
     );

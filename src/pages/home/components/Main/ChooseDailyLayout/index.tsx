@@ -2,6 +2,7 @@ import { DailyType } from "models/enum";
 import { useDispatch, useSelector } from "react-redux";
 import { changeDailyLayout, selectDaily } from "stores/reducers/daily";
 import LandscapeDailyMinimalPrimary from "assets/images/landscape-daily-minimal-primary.png";
+import { isDailyMinimalLayout, isDailyStructuredLayout, showBorderColor } from "utils/common";
 
 export const SelectDailyLayout = () => {
   const dispatch = useDispatch();
@@ -17,42 +18,28 @@ export const SelectDailyLayout = () => {
 
   return (
     <div className="flex flex-col items-start">
-      <h1 className="font-medium text-4xl mb-10 text-center">
-        Choose your weekly layout
-      </h1>
+      <h1 className="font-medium text-4xl mb-10 text-center w-full">Choose your daily layout</h1>
       <div className="flex justify-center items-center gap-[40px] self-stretch">
-        <div className="flex flex-col items-start gap-[20px] flex-[1_1_0]"></div>
-        <div className="flex justify-center items-center">
-          <img
-            src={LandscapeDailyMinimalPrimary}
-            alt="landscape-weekly-boxed-primary"
-            width={360}
-          />
+        <div className="flex flex-col items-start gap-[20px] w-[400px]"></div>
+
+        <div className="flex justify-center items-center flex-grow">
+          <img src={LandscapeDailyMinimalPrimary} alt="landscape-weekly-boxed-primary" width={360} />
         </div>
-        <div className="flex flex-col items-start gap-[20px] flex-[1_0_0]">
+
+        <div className="flex flex-col items-start gap-[20px] w-[400px]">
           <div
-            className={`flex p-[16px] flex-col items-center gap-[14px] self-stretch bg-[#FFF] border border-solid border-[${
-              dailyLayout === DailyType.Minimal ? "#0D0D0D" : "#E1E1E1"
-            }]`}
+            className={`flex p-[12px] flex-col items-center self-stretch border border-solid cursor-pointer
+            ${showBorderColor(isDailyMinimalLayout(dailyLayout))}`}
+            onClick={chooseMinimal}
           >
-            <button
-              onClick={chooseMinimal}
-              className="uppercase font-semibold text-xl"
-            >
-              MINIMAL
-            </button>
+            <button className="uppercase font-semibold text-xl">MINIMAL</button>
           </div>
           <div
-            className={`flex p-[16px] flex-col items-center gap-[14px] self-stretch bg-[#FFF] border border-solid border-[${
-              dailyLayout === DailyType.Structured ? "#0D0D0D" : "#E1E1E1"
-            }]`}
+            className={`flex p-[12px] flex-col items-center self-stretch border border-solid cursor-pointer
+            ${showBorderColor(isDailyStructuredLayout(dailyLayout))}`}
+            onClick={chooseStructured}
           >
-            <button
-              onClick={chooseStructured}
-              className="uppercase font-semibold text-xl"
-            >
-              STRUCTURED
-            </button>
+            <button className="uppercase font-semibold text-xl">STRUCTURED</button>
           </div>
         </div>
       </div>
