@@ -50,7 +50,7 @@ const TimeTableBlankRow = ({ rowsCount }: Props) => {
   const rows = blankRows.map((x, i) => (
     <View style={styles.row} debug={false} key={i}>
       <View style={styles.time} debug={false}>
-        <Text>`${startAt++}:00`</Text>
+        <Text>{`${startAt++}:00`}</Text>
       </View>
 
       <View style={styles.monday}></View>

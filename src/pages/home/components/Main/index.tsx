@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import StartingLayout from "pages/home/components/Main/ChooseOrientationLayout";
-import { useDispatch, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 import { SelectWeeklyLayout } from "./ChooseWeeklyLayout";
 import { nextStep, prevStep, selectStep } from "stores/reducers/step";
@@ -8,6 +8,7 @@ import { SelectDailyLayout } from "./ChooseDailyLayout";
 import { ExportPlanner } from "./ExportPlanner";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import MainDocument from "pages/MainDocument";
+import { store } from "stores";
 
 type Props = {
   className?: string;
@@ -29,7 +30,10 @@ export default function Main({ className }: Props) {
 
   const renderCurrStepComponent = () => {
     if (step === 1) return <StartingLayout />;
-    if (step === 2) return <SelectWeeklyLayout />;
+    if (step === 2) {
+      console.log(step);
+      return <SelectWeeklyLayout />;
+    }
     if (step === 3) return <SelectDailyLayout />;
     if (step === 4) return <ExportPlanner />;
     return <StartingLayout />;
@@ -39,7 +43,14 @@ export default function Main({ className }: Props) {
     if (step === 4)
       return (
         <Button type="primary" className="black-btn">
-          <PDFDownloadLink document={<MainDocument />} fileName="somename.pdf">
+          <PDFDownloadLink
+            document={
+              <Provider store={store}>
+                <MainDocument />
+              </Provider>
+            }
+            fileName="somename.pdf"
+          >
             {({ blob, url, loading, error }) =>
               loading ? "Loading document..." : "DOWNLOAD HERE"
             }
@@ -71,7 +82,6 @@ export default function Main({ className }: Props) {
 
   return (
     <div className={`${className} pt-5 pb-12 flex flex-col items-center`}>
-      {/* <StartingLayout /> */}
       {renderCurrStepComponent()}
       {renderButtons()}
     </div>

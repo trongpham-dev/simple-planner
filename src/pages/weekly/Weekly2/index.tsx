@@ -1,9 +1,12 @@
 import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
 import { getWeekDates } from "common/dayTimeUtils";
+import { DailyRendering } from "common/plannerRendering";
 import PageDateTitle from "components/PageDateTitle";
 import TimeTable from "components/TimeTable";
 import moment from "moment";
 import { Daily1 } from "pages/daily/Daily1";
+import { useSelector } from "react-redux";
+import { selectDaily } from "stores/reducers/daily";
 
 const styles = StyleSheet.create({
   page: {
@@ -25,6 +28,7 @@ interface Props {
 }
 
 export const Weekly2 = ({ id, year, month, startDate }: Props) => {
+  const { dailyLayout } = useSelector(selectDaily());
   const weeks = getWeekDates(year, month, startDate);
   let firstWeek = 0;
   const elms = weeks.map((w) => {
@@ -45,9 +49,7 @@ export const Weekly2 = ({ id, year, month, startDate }: Props) => {
           </View>
           <TimeTable />
         </Page>
-        {w.map((d, i) => (
-          <Daily1 key={i} day={d} />
-        ))}
+        {w.map((d, i) => DailyRendering(dailyLayout, d, i))}
       </>
     );
   });
