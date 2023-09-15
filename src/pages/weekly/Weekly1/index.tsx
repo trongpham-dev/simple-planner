@@ -1,12 +1,12 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import { getWeekDates } from "common/dayTimeUtils";
 import { DailyRendering } from "common/plannerRendering";
-
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import DayCard from "pages/weekly/Weekly1/DayCard";
 import Notes from "pages/weekly/Weekly3/Notes";
+import { ReactElement } from "react";
 import { useSelector } from "react-redux";
 import { selectDaily } from "stores/reducers/daily";
 
@@ -78,7 +78,7 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
         <Page
           size="A4"
           style={styles.page}
-          orientation="landscape"
+          orientation="portrait"
           id={`${String(id)}-${String(firstWeek++)}`}
           wrap={false}
         >
@@ -88,30 +88,9 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
                 <PageDateTitle heading={heading} description={description} />
               </View>
               <View style={styles.container}>
-                <View style={styles.top}>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
-                  <View style={[styles.card, styles.withoutMargin]}>
-                    <DayCard />
-                  </View>
-                </View>
+                <View style={styles.top}>{renderDayCard(0, 3, w)}</View>
                 <View style={styles.bottom}>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
-                  <View style={styles.card}>
-                    <DayCard />
-                  </View>
+                  {renderDayCard(4, 6, w)}
                   <View style={[styles.card, styles.withoutMargin]}>
                     <Notes />
                   </View>
@@ -127,5 +106,25 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
       </>
     );
   });
+  return elms;
+};
+
+const renderDayCard = (from: number, to: number, days: Moment[]) => {
+  let elms: ReactElement[] = [];
+  for (let i = from; i <= to; i++) {
+    if (i === 3) {
+      elms.push(
+        <View key={i} style={[styles.card, styles.withoutMargin]}>
+          <DayCard key={i} day={days[i]} />
+        </View>
+      );
+    } else {
+      elms.push(
+        <View key={i} style={styles.card}>
+          <DayCard key={i} day={days[i]} />
+        </View>
+      );
+    }
+  }
   return elms;
 };

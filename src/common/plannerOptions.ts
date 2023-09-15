@@ -1,7 +1,7 @@
 export const ThemeColors = new Map([
   ["Primary", "#917B62"],
   ["Secondary", "#465902"],
-  ["Tertiary", "#5D4394"],
+  ["Tertiary", "#5f3aa8"],
 ]);
 
 export const WeeklyTypes = new Map([

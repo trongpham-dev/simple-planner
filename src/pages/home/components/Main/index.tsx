@@ -34,7 +34,6 @@ export default function Main({ className }: Props) {
   const renderCurrStepComponent = () => {
     if (step === 1) return <StartingLayout />;
     if (step === 2) {
-      console.log(step);
       return <SelectWeeklyLayout />;
     }
     if (step === 3) return <SelectDailyLayout />;
@@ -54,20 +53,32 @@ export default function Main({ className }: Props) {
             }
             fileName="somename.pdf"
           >
-            {({ blob, url, loading, error }) => (loading ? "Loading document..." : "DOWNLOAD HERE")}
+            {({ blob, url, loading, error }) =>
+              loading ? "Loading document..." : "DOWNLOAD HERE"
+            }
           </PDFDownloadLink>
         </Button>
       );
     return (
       <div className="mt-[92px] flex gap-5">
-        <Button type="primary" className="black-btn" onClick={handlePrevStep} disabled={step === 1}>
+        <Button
+          type="primary"
+          className="black-btn"
+          onClick={handlePrevStep}
+          disabled={step === 1}
+        >
           <div className="flex items-center gap-3 justify-center">
             <ArrowLeftOutlined />
             <span>Back</span>
           </div>
         </Button>
 
-        <Button type="primary" className="black-btn" disabled={step === 4} onClick={handleNextStep}>
+        <Button
+          type="primary"
+          className="black-btn"
+          disabled={step === 4}
+          onClick={handleNextStep}
+        >
           <div className="flex items-center gap-3 justify-center">
             <span>Next</span>
             <ArrowRightOutlined />
