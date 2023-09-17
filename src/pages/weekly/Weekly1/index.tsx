@@ -78,7 +78,7 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
         <Page
           size="A4"
           style={styles.page}
-          orientation="portrait"
+          orientation="landscape"
           id={`${String(id)}-${String(firstWeek++)}`}
           wrap={false}
         >
@@ -102,7 +102,7 @@ export const Weekly1 = ({ id, year, month, startDate }: Props) => {
             </View>
           </View>
         </Page>
-        {w.map((d, i) => DailyRendering(dailyLayout, d, i))}
+        {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
       </>
     );
   });

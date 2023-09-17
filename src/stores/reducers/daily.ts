@@ -3,11 +3,11 @@ import { DailyType } from "models/enum";
 import { AppState } from "stores";
 
 export interface DailyState {
-  dailyLayout: DailyType;
+  dailyLayout: DailyType | undefined;
 }
 
 const initialState: DailyState = {
-  dailyLayout: DailyType.Minimal,
+  dailyLayout: undefined,
 };
 
 export const dailySlice = createSlice({

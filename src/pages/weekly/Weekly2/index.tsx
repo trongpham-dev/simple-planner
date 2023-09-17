@@ -49,7 +49,7 @@ export const Weekly2 = ({ id, year, month, startDate }: Props) => {
           </View>
           <TimeTable />
         </Page>
-        {w.map((d, i) => DailyRendering(dailyLayout, d, i))}
+        {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
       </>
     );
   });

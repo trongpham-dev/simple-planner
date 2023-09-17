@@ -15,7 +15,7 @@ export default function DayCard({ day }: Props) {
 
   const handleBgColor = () => {
     if (color === ColorType.Primary || color === ColorType.Secondary) {
-      return COLOR.LIGHT_BROWN;
+      return COLOR.EXTRA_LIGHT_BROWN;
     }
     return "#f9f5fb";
   };

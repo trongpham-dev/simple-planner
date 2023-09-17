@@ -118,7 +118,7 @@ export const Weekly4 = ({ id, year, month, startDate }: Props) => {
           </View>
         </Page>
 
-        {w.map((d, i) => DailyRendering(dailyLayout, d, i))}
+        {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
       </>
     );
   });

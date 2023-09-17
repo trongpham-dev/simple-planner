@@ -11,6 +11,8 @@ import MainDocument from "pages/MainDocument";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { store } from "stores";
+import { selectWeekly } from "stores/reducers/weekly";
+import { selectDaily } from "stores/reducers/daily";
 
 type Props = {
   className?: string;
@@ -19,9 +21,10 @@ type Props = {
 export default function Main({ className }: Props) {
   const { orientation } = useSelector(selectTheme());
   const { step } = useSelector(selectStep());
-  const dispatch = useDispatch();
+  const { weeklyLayout } = useSelector(selectWeekly());
+  const { dailyLayout } = useSelector(selectDaily());
 
-  const isDisableNextButton = !orientation;
+  const dispatch = useDispatch();
 
   const handleNextStep = () => {
     dispatch(nextStep());
@@ -29,6 +32,13 @@ export default function Main({ className }: Props) {
 
   const handlePrevStep = () => {
     dispatch(prevStep());
+  };
+
+  const handleDisableNextStep = () => {
+    if (step === 1 && orientation) return false;
+    if (step === 2 && weeklyLayout) return false;
+    if (step === 3 && dailyLayout) return false;
+    return true;
   };
 
   const renderCurrStepComponent = () => {
@@ -42,9 +52,10 @@ export default function Main({ className }: Props) {
   };
 
   const renderButtons = () => {
+    const disable = handleDisableNextStep();
     if (step === 4)
       return (
-        <Button type="primary" className="black-btn">
+        <Button type="primary" className="black-btn mt-[92px]">
           <PDFDownloadLink
             document={
               <Provider store={store}>
@@ -76,7 +87,7 @@ export default function Main({ className }: Props) {
         <Button
           type="primary"
           className="black-btn"
-          disabled={step === 4}
+          disabled={disable}
           onClick={handleNextStep}
         >
           <div className="flex items-center gap-3 justify-center">

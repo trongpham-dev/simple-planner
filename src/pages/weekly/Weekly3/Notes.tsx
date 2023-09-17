@@ -1,5 +1,6 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import { ThemeColors } from "common/plannerOptions";
+import { handleBgColor } from "common/plannerRendering";
 import { COLOR } from "constants/color";
 import { ColorType } from "models/enum";
 import Heading from "pages/weekly/Weekly3/Heading";
@@ -8,15 +9,6 @@ import { selectTheme } from "stores/reducers/theme";
 
 export default function Notes() {
   const { color } = useSelector(selectTheme());
-  const handleBgColor = () => {
-    if (color === ColorType.Primary) {
-      return COLOR.LIGHT_BROWN;
-    }
-    if (color === ColorType.Secondary) {
-      return "#e4e8d8";
-    }
-    return "#f4e8fA";
-  };
   const styles = StyleSheet.create({
     container: {
       color: ThemeColors.get(color),
@@ -24,7 +16,7 @@ export default function Notes() {
       height: "100%",
       paddingVertical: 0,
       paddingHorizontal: 8,
-      backgroundColor: handleBgColor(),
+      backgroundColor: handleBgColor(color),
     },
   });
   return (

@@ -3,11 +3,11 @@ import { WeeklyType } from "models/enum";
 import { AppState } from "stores";
 
 export interface WeeklyState {
-  weeklyLayout: WeeklyType;
+  weeklyLayout: WeeklyType | undefined;
 }
 
 const initialState: WeeklyState = {
-  weeklyLayout: WeeklyType.Boxed,
+  weeklyLayout: undefined,
 };
 
 export const weeklySlice = createSlice({
