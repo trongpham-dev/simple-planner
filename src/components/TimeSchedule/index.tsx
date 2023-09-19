@@ -7,6 +7,7 @@ import { selectTheme } from "stores/reducers/theme";
 
 export default function TimeSchedule() {
   const { color } = useSelector(selectTheme());
+
   const styles = StyleSheet.create({
     container: {
       color: ThemeColors.get(color),

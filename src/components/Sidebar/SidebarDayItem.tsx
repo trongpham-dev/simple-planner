@@ -22,6 +22,10 @@ export default function SidebarMonthItem({ month, src }: Props) {
       marginBottom: 1,
       justifyContent: "center",
       alignItems: "center",
+
+      "@media orientation: portrait": {
+        paddingVertical: 27,
+      },
     },
     text: {
       fontSize: 10,
@@ -32,6 +36,7 @@ export default function SidebarMonthItem({ month, src }: Props) {
       color: ThemeColors.get(color),
     },
   });
+
   return (
     <View style={styles.container}>
       <Link src={src} style={styles.link}>

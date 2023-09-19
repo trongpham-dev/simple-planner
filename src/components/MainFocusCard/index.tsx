@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     borderColor: COLOR.EXTRA_LIGHT_BROWN_2,
     borderWidth: 1,
     height: "100%",
-    paddingTop: 4,
+    // paddingTop: 4,
     paddingHorizontal: 4,
   },
 });

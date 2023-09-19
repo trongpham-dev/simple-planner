@@ -10,6 +10,7 @@ export default function Sidebar() {
       paddingVertical: 6,
     },
   });
+
   const monthLinks = [
     {
       month: "JAN",
@@ -60,6 +61,7 @@ export default function Sidebar() {
       src: "#11-0",
     },
   ];
+
   return (
     <View style={styles.container}>
       {monthLinks.map((m, i) => (

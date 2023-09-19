@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
     height: 30,
     alignItems: "center",
+
+    "@media orientation: portrait": {
+      fontSize: 11,
+    },
   },
   left: {
     flexDirection: "row",
