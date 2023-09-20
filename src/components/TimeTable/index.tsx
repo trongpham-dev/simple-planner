@@ -3,6 +3,7 @@ import { StyleSheet, View } from "@react-pdf/renderer";
 import TimeTableBlankRow from "./TimeTableBlankRow";
 import TimeTableHeader from "./TimeTableHeader";
 import { COLOR } from "constants/color";
+import moment from "moment";
 
 const styles = StyleSheet.create({
   tableContainer: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
 
 const TimeTable = () => (
   <View style={styles.tableContainer}>
-    {/* <TimeTableHeader /> */}
+    <TimeTableHeader days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]} />
     <TimeTableBlankRow rowsCount={18} />
   </View>
 );

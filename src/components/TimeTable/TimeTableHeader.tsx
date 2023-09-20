@@ -15,6 +15,10 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     flexGrow: 1,
     color: COLOR.WHITE,
+
+    "@media orientation: portrait": {
+      height: 26,
+    },
   },
   monday: {
     width: "15%",

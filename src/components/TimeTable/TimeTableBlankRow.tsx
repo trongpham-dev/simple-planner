@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     alignItems: "center",
     height: 25,
+
+    "@media orientation: portrait": {
+      height: 38,
+    },
   },
   monday: {
     width: "15%",
@@ -37,6 +41,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     top: 6,
     left: -40,
+
+    "@media orientation: portrait": {
+      top: 29,
+    },
   },
 });
 

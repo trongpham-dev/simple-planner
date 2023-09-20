@@ -11,19 +11,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    fontSize: 12,
+
+    "@media orientation: portrait": {
+      fontSize: 9,
+    },
   },
   withoutBorderContainer: {
     width: "15%",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+
+    "@media orientation: portrait": {
+      fontSize: 9,
+    },
   },
   title: {
-    fontSize: 12,
     fontWeight: 400,
   },
   number: {
-    fontSize: 12,
     marginRight: 3,
     fontWeight: 600,
   },
@@ -36,9 +43,7 @@ type Props = {
 
 const TimeTableHeaderItem = ({ withoutBorder = false, day }: Props) => {
   return (
-    <View
-      style={withoutBorder ? styles.withoutBorderContainer : styles.container}
-    >
+    <View style={withoutBorder ? styles.withoutBorderContainer : styles.container}>
       <Text style={styles.number}>{day.format("DD")}</Text>
       <Text style={styles.title}>{day.format("dddd")}</Text>
     </View>
