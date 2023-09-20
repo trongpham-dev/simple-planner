@@ -19,7 +19,6 @@ export default function EatTodayCard({ totalRow }: Props) {
       borderColor: handleBorderBottomColor(color),
       borderWidth: 1,
       height: "100%",
-      paddingTop: 4,
       paddingHorizontal: 4,
     },
   });

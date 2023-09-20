@@ -9,7 +9,8 @@ interface Props {
 }
 
 export default function PageDateTitle({ heading, description }: Props) {
-  const { color } = useSelector(selectTheme());
+  // const { color } = useSelector(selectTheme());
+  const color = "#333333";
 
   const styles = StyleSheet.create({
     container: {

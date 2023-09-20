@@ -27,6 +27,9 @@ export default function DetailHeading() {
       backgroundColor: handleBgColor(),
       height: 30,
       alignItems: "center",
+      "@media orientation: portrait": {
+        fontSize: 11,
+      },
     },
     left: {
       flexDirection: "row",

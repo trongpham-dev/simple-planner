@@ -13,7 +13,7 @@ export default function MainFocusCard() {
       borderColor: handleBorderBottomColor(color),
       borderWidth: 1,
       height: "100%",
-      paddingTop: 4,
+      // paddingTop: 4,
       paddingHorizontal: 4,
     },
   });

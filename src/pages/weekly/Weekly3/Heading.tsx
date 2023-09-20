@@ -21,6 +21,10 @@ export default function Heading({ title }: Props) {
       fontSize: 13,
       fontWeight: 600,
       letterSpacing: 0.24,
+
+      "@media orientation: portrait": {
+        fontSize: 11,
+      },
     },
   });
   return (

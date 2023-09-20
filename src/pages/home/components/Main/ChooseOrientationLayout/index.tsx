@@ -8,7 +8,6 @@ import { isLandscape, isPortrait, showBorderColor } from "utils/common";
 export default function StartingLayout() {
   const dispatch = useDispatch();
   const { orientation } = useSelector(selectTheme());
-  console.log("🚀 ~ file: index.tsx:11 ~ StartingLayout ~ orientation:", orientation);
 
   const chooseLandscape = () => {
     dispatch(changeOrientation(Orientation.Landscape));
