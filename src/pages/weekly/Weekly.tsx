@@ -5,8 +5,6 @@ import DayWeeklyNotes from "../../components/DayWeeklyNotes";
 import moment from "moment/moment";
 import Daily from "pages/daily/Daily";
 
-const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-
 const getWeekDates = (year: number, month: number, dayOfWeek: number) => {
   let weeks = [];
   let firstDay = moment([year, month]).startOf("month");

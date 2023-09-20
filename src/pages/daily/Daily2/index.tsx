@@ -1,4 +1,5 @@
-import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import { handleBgColor } from "common/plannerRendering";
 
 import BlankRowCard from "components/BlankRowCard";
 import EatTodayCard from "components/EatTodayCard";
@@ -8,9 +9,10 @@ import Priorities from "components/Priorities";
 import Sidebar from "components/Sidebar";
 import TimeScheduleWithDetailHeading from "components/TimeScheduleWithDetailHeading";
 import TodoList from "components/TodoList";
-import { COLOR } from "constants/color";
 import { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
+import { useSelector } from "react-redux";
+import { selectTheme } from "stores/reducers/theme";
 
 const styles = StyleSheet.create({
   page: {
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
   },
   middle: {
     height: "35%",
-    marginVertical: 8,
+    marginVertical: -2,
   },
   bottom: {
     height: "35%",
@@ -67,7 +69,7 @@ interface Props {
 }
 
 export const Daily2 = ({ day }: Props) => {
-  console.log(day);
+  const { color } = useSelector(selectTheme());
   const heading = day.format("DD dddd");
   const description = day.format("MMMM YYYY");
   return (
@@ -92,7 +94,7 @@ export const Daily2 = ({ day }: Props) => {
                 <BlankRowCard
                   totalRow={5}
                   customStyles={{
-                    backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
+                    backgroundColor: handleBgColor(color),
                     paddingVertical: 8,
                   }}
                 />

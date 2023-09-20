@@ -1,4 +1,4 @@
-import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import { getWeekDates } from "common/dayTimeUtils";
 import { DailyRendering } from "common/plannerRendering";
 import DayTable from "components/DayTable";
@@ -6,8 +6,6 @@ import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
 import TodoCard from "components/TodoCard";
 import moment from "moment";
-import { Daily1 } from "pages/daily/Daily1";
-import { Daily2 } from "pages/daily/Daily2";
 import Notes from "pages/weekly/Weekly3/Notes";
 import { useSelector } from "react-redux";
 import { selectDaily } from "stores/reducers/daily";

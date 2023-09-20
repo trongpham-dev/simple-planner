@@ -1,5 +1,5 @@
 import { Link, Page, Text, View } from "@react-pdf/renderer";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 interface Props {
   day: Moment;

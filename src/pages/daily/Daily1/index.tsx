@@ -1,4 +1,4 @@
-import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { Page, StyleSheet, View } from "@react-pdf/renderer";
 
 import BlankRowCard from "components/BlankRowCard";
 import PageDateTitle from "components/PageDateTitle";

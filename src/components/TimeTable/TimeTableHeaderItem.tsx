@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   container: {

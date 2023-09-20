@@ -4,7 +4,6 @@ import {
   handleBgColor,
   handleBorderBottomColor,
 } from "common/plannerRendering";
-import { COLOR } from "constants/color";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 

@@ -1,10 +1,9 @@
-import { Document, Page, StyleSheet, View } from "@react-pdf/renderer";
+import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import { getWeekDates } from "common/dayTimeUtils";
 import { DailyRendering } from "common/plannerRendering";
 import PageDateTitle from "components/PageDateTitle";
 import TimeTable from "components/TimeTable";
 import moment from "moment";
-import { Daily1 } from "pages/daily/Daily1";
 import { useSelector } from "react-redux";
 import { selectDaily } from "stores/reducers/daily";
 

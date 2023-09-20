@@ -1,8 +1,6 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import { ThemeColors } from "common/plannerOptions";
 import { handleBgColor } from "common/plannerRendering";
-import { COLOR } from "constants/color";
-import { ColorType } from "models/enum";
 import Heading from "pages/weekly/Weekly3/Heading";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
