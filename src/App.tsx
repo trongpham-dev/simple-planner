@@ -26,25 +26,27 @@ Font.register({
 });
 
 function App() {
-  const elms = months.map((m) => <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />);
-
-  // return (
-  //   <Provider store={store}>
-  //     <Home />
-  //   </Provider>
-  // );
+  const elms = months.map((m) => (
+    <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />
+  ));
 
   return (
-    <PDFViewer className="w-full h-full">
-      <Provider store={store}>
-        <Document>
-          {/* <PortraitDaily1 /> */}
-          {/* <PortraitDaily2 /> */}
-          <PortraitWeekly1 />
-        </Document>
-      </Provider>
-    </PDFViewer>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
+
+  // return (
+  //   <PDFViewer className="w-full h-full">
+  //     <Provider store={store}>
+  //       <Document>
+  //         {/* <PortraitDaily1 /> */}
+  //         {/* <PortraitDaily2 /> */}
+  //         <PortraitWeekly1 />
+  //       </Document>
+  //     </Provider>
+  //   </PDFViewer>
+  // );
 }
 
 export default App;
