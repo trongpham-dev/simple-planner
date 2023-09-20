@@ -12,6 +12,7 @@ import clashDisplayBold from "assets/fonts/ClashDisplay-Bold.ttf";
 import clashDisplaySemiBold from "assets/fonts/ClashDisplay-Semibold.ttf";
 import clashDisplayMedium from "assets/fonts/ClashDisplay-Medium.ttf";
 import { PortraitDaily2 } from "pages/daily/Daily2/PortraitDaily2";
+import { PortraitWeekly1 } from "pages/weekly/Weekly1/PortraitWeekly1";
 
 Font.register({
   family: "Clash Display",
@@ -37,8 +38,9 @@ function App() {
     <PDFViewer className="w-full h-full">
       <Provider store={store}>
         <Document>
-          <PortraitDaily1 />
+          {/* <PortraitDaily1 /> */}
           {/* <PortraitDaily2 /> */}
+          <PortraitWeekly1 />
         </Document>
       </Provider>
     </PDFViewer>

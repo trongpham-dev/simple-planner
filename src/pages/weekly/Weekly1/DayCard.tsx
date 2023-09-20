@@ -9,8 +9,9 @@ import { selectTheme } from "stores/reducers/theme";
 
 interface Props {
   day: Moment;
+  customStyles?: any;
 }
-export default function DayCard({ day }: Props) {
+export default function DayCard({ day, customStyles }: Props) {
   const { color } = useSelector(selectTheme());
 
   const handleBgColor = () => {
@@ -29,8 +30,9 @@ export default function DayCard({ day }: Props) {
       backgroundColor: handleBgColor(),
     },
   });
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyles]}>
       <DayCardHeading day={day} />
       <DayCardBlankRow />
       <DayCardBlankRow />
