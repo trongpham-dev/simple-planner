@@ -15,6 +15,7 @@ import { PortraitDaily2 } from "pages/daily/Daily2/PortraitDaily2";
 import { PortraitWeekly1 } from "pages/weekly/Weekly1/PortraitWeekly1";
 import { PortraitWeekly2 } from "pages/weekly/Weekly2/PortraitWeekly2";
 import { PortraitWeekly4 } from "pages/weekly/Weekly4/PortraitWeekly4";
+import { PortraitWeekly3 } from "pages/weekly/Weekly3/PortraitWeekly3";
 
 Font.register({
   family: "Clash Display",
@@ -38,7 +39,8 @@ function App() {
           {/* <PortraitDaily2 /> */}
           {/* <PortraitWeekly1 /> */}
           {/* <PortraitWeekly2 /> */}
-          <PortraitWeekly4 />
+          {/* <PortraitWeekly4 /> */}
+          <PortraitWeekly3 />
         </Document>
       </Provider>
     </PDFViewer>

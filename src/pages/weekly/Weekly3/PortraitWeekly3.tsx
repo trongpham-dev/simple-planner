@@ -1,10 +1,11 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
-import DayTable from "components/DayTable";
+
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
-import TodoCard from "components/TodoCard";
-import moment from "moment";
+import Day from "pages/weekly/Weekly3/Day";
+import Heading from "pages/weekly/Weekly3/Heading";
 import Notes from "pages/weekly/Weekly3/Notes";
+import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 
 const styles = StyleSheet.create({
   page: {
@@ -36,39 +37,25 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   top: {
-    marginBottom: 12,
-    height: "65%",
+    height: "63%",
   },
   bottom: {
-    height: "50%",
+    width: "100%",
+    height: "35%",
     flexDirection: "row",
-    justifyContent: "space-between",
   },
-  bLeft: {
-    width: "40%",
-    flexDirection: "column",
-    height: "100%",
+  priorities: {
+    width: "50%",
     marginRight: 16,
   },
-  bRight: {
-    width: "60%",
-    height: "100%",
-  },
-  todoCard: {
-    // width: "26%",
-    height: "50%",
-  },
-  note: {
-    // width: "45%",
-    width: "100%",
-    height: "100%",
-    // height: "158",
+  notes: {
+    width: "50%",
   },
 });
 
-export const PortraitWeekly4 = () => {
+export const PortraitWeekly3 = () => {
   return (
-    <Page size="A4" style={styles.page} wrap={false} orientation="portrait">
+    <Page size="A4" style={styles.page} orientation="portrait">
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
@@ -77,23 +64,31 @@ export const PortraitWeekly4 = () => {
 
           <View style={styles.container}>
             <View style={styles.top}>
-              <DayTable days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]} />
+              <Heading title="SCHEDULE" />
+              <Day />
+              <Day />
+              <Day />
+              <Day />
+              <Day />
+              <Day />
+              <Day />
             </View>
 
             <View style={styles.bottom}>
-              <View style={styles.bLeft}>
-                <View style={[styles.todoCard, { marginBottom: 12 }]}>
-                  <TodoCard />
-                </View>
-                <View style={styles.todoCard}>
-                  <TodoCard />
-                </View>
+              <View style={styles.priorities}>
+                <Heading title="WEEK’S PRIORITIES" />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
+                <PriorityRow />
               </View>
 
-              <View style={styles.bRight}>
-                <View style={styles.note}>
-                  <Notes />
-                </View>
+              <View style={styles.notes}>
+                <Notes />
               </View>
             </View>
           </View>
