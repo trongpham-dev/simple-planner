@@ -10,7 +10,6 @@ import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",
@@ -59,7 +58,10 @@ export const PortraitWeekly3 = () => {
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle heading={"heading"} description={`${"description"}`} />
+            <PageDateTitle
+              heading={"heading"}
+              description={`${"description"}`}
+            />
           </View>
 
           <View style={styles.container}>

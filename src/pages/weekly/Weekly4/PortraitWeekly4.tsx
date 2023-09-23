@@ -9,7 +9,6 @@ import Notes from "pages/weekly/Weekly3/Notes";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",
@@ -72,12 +71,25 @@ export const PortraitWeekly4 = () => {
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle heading={"heading"} description={`${"description"}`} />
+            <PageDateTitle
+              heading={"heading"}
+              description={`${"description"}`}
+            />
           </View>
 
           <View style={styles.container}>
             <View style={styles.top}>
-              <DayTable days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]} />
+              <DayTable
+                days={[
+                  moment(),
+                  moment(),
+                  moment(),
+                  moment(),
+                  moment(),
+                  moment(),
+                  moment(),
+                ]}
+              />
             </View>
 
             <View style={styles.bottom}>

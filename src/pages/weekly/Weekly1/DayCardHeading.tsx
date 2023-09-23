@@ -15,20 +15,20 @@ export default function DayCardHeading({ day }: Props) {
       borderBottomColor: ThemeColors.get(color),
       borderBottomWidth: 1,
       color: ThemeColors.get(color),
-      fontStyle: "normal",
       width: "100%",
       paddingBottom: 4,
       fontSize: 13,
       flexDirection: "row",
     },
     number: {
-      marginRight: 6,
       fontWeight: 700,
+      marginRight: 6,
     },
     text: {
       fontWeight: 400,
     },
   });
+
   return (
     <View style={styles.container}>
       <Text style={styles.number}>{day.format("DD")}</Text>

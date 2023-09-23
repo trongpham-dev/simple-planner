@@ -6,7 +6,6 @@ import TimeTable from "components/TimeTable";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",

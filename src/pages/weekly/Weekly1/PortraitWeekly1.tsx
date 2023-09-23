@@ -13,7 +13,6 @@ import { selectDaily } from "stores/reducers/daily";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",

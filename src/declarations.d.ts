@@ -1,4 +1,4 @@
-declare module "*.ttf" {
+declare module "*.otf" {
   const value: any;
   export default value;
 }

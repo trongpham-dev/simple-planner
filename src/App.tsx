@@ -7,44 +7,37 @@ import { Document, Font, PDFViewer } from "@react-pdf/renderer";
 import { Weekly2 } from "pages/weekly/Weekly2";
 import { PortraitDaily1 } from "pages/daily/Daily1/PortraitDaily1";
 
-import clashDisplayRegular from "assets/fonts/ClashDisplay-Regular.ttf";
-import clashDisplayBold from "assets/fonts/ClashDisplay-Bold.ttf";
-import clashDisplaySemiBold from "assets/fonts/ClashDisplay-Semibold.ttf";
-import clashDisplayMedium from "assets/fonts/ClashDisplay-Medium.ttf";
 import { PortraitDaily2 } from "pages/daily/Daily2/PortraitDaily2";
 import { PortraitWeekly1 } from "pages/weekly/Weekly1/PortraitWeekly1";
 import { PortraitWeekly2 } from "pages/weekly/Weekly2/PortraitWeekly2";
 import { PortraitWeekly4 } from "pages/weekly/Weekly4/PortraitWeekly4";
 import { PortraitWeekly3 } from "pages/weekly/Weekly3/PortraitWeekly3";
 
-Font.register({
-  family: "Clash Display",
-  format: "truetype",
-  fonts: [
-    { src: clashDisplayRegular, fontWeight: "normal" },
-    { src: clashDisplayBold, fontWeight: "bold" },
-    { src: clashDisplayMedium, fontWeight: "medium" },
-    { src: clashDisplaySemiBold, fontWeight: "semibold" },
-  ],
-});
-
 function App() {
-  const elms = months.map((m) => <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />);
+  const elms = months.map((m) => (
+    <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />
+  ));
 
   return (
-    <PDFViewer className="w-full h-full">
-      <Provider store={store}>
-        <Document>
-          {/* <PortraitDaily1 /> */}
-          {/* <PortraitDaily2 /> */}
-          {/* <PortraitWeekly1 /> */}
-          {/* <PortraitWeekly2 /> */}
-          {/* <PortraitWeekly4 /> */}
-          <PortraitWeekly3 />
-        </Document>
-      </Provider>
-    </PDFViewer>
+    <Provider store={store}>
+      <Home />
+    </Provider>
   );
+
+  // return (
+  //   <PDFViewer className="w-full h-full">
+  //     <Provider store={store}>
+  //       <Document>
+  //         {/* <PortraitDaily1 /> */}
+  //         {/* <PortraitDaily2 /> */}
+  //         {/* <PortraitWeekly1 /> */}
+  //         {/* <PortraitWeekly2 /> */}
+  //         {/* <PortraitWeekly4 /> */}
+  //         <PortraitWeekly3 />
+  //       </Document>
+  //     </Provider>
+  //   </PDFViewer>
+  // );
 
   // return (
   //   <PDFViewer className="w-full h-full">

@@ -12,7 +12,6 @@ import Notes from "pages/weekly/Weekly3/Notes";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",

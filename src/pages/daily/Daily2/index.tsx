@@ -17,7 +17,6 @@ import { selectTheme } from "stores/reducers/theme";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",

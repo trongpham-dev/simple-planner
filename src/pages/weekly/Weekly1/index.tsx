@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import { getWeekDates } from "common/dayTimeUtils";
 import { DailyRendering } from "common/plannerRendering";
@@ -13,7 +14,6 @@ import { selectDaily } from "stores/reducers/daily";
 const styles = StyleSheet.create({
   page: {
     paddingLeft: 15,
-    fontFamily: "Clash Display",
   },
   wrapper: {
     width: "100%",
@@ -67,46 +67,53 @@ interface Props {
 export const Weekly1 = ({ id, year, month, startDate }: Props) => {
   const { dailyLayout } = useSelector(selectDaily());
   const weeks = getWeekDates(year, month, startDate);
+  const [weeklyPages, setWeeklyPages] = useState<JSX.Element[]>([]);
+
+  useEffect(() => {
+    setWeeklyPages(elms());
+  }, []);
+
   let firstWeek = 0;
-  const elms = weeks.map((w) => {
-    const heading = moment().year(year).month(month).format("MMMM YYYY");
-    const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
-      "DD MMMM"
-    )}`;
-    return (
-      <>
-        <Page
-          size="A4"
-          style={styles.page}
-          orientation="landscape"
-          id={`${String(id)}-${String(firstWeek++)}`}
-          wrap={false}
-        >
-          <View style={styles.wrapper}>
-            <View style={styles.main}>
-              <View style={styles.heading}>
-                <PageDateTitle heading={heading} description={description} />
-              </View>
-              <View style={styles.container}>
-                <View style={styles.top}>{renderDayCard(0, 3, w)}</View>
-                <View style={styles.bottom}>
-                  {renderDayCard(4, 6, w)}
-                  <View style={[styles.card, styles.withoutMargin]}>
-                    <Notes />
+  const elms = () =>
+    weeks.map((w) => {
+      const heading = moment().year(year).month(month).format("MMMM YYYY");
+      const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
+        "DD MMMM"
+      )}`;
+      return (
+        <>
+          <Page
+            size="A4"
+            style={styles.page}
+            orientation="landscape"
+            id={`${String(id)}-${String(firstWeek++)}`}
+            wrap={false}
+          >
+            <View style={styles.wrapper}>
+              <View style={styles.main}>
+                <View style={styles.heading}>
+                  <PageDateTitle heading={heading} description={description} />
+                </View>
+                <View style={styles.container}>
+                  <View style={styles.top}>{renderDayCard(0, 3, w)}</View>
+                  <View style={styles.bottom}>
+                    {renderDayCard(4, 6, w)}
+                    <View style={[styles.card, styles.withoutMargin]}>
+                      <Notes />
+                    </View>
                   </View>
                 </View>
               </View>
+              <View style={styles.sidebar}>
+                <Sidebar />
+              </View>
             </View>
-            <View style={styles.sidebar}>
-              <Sidebar />
-            </View>
-          </View>
-        </Page>
-        {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
-      </>
-    );
-  });
-  return elms;
+          </Page>
+          {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
+        </>
+      );
+    });
+  return weeklyPages;
 };
 
 const renderDayCard = (from: number, to: number, days: Moment[]) => {

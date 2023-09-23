@@ -9,8 +9,8 @@ interface Props {
 }
 
 export default function PageDateTitle({ heading, description }: Props) {
-  // const { color } = useSelector(selectTheme());
-  const color = "#333333";
+  const { color } = useSelector(selectTheme());
+  // const color = "#333333";
 
   const styles = StyleSheet.create({
     container: {
@@ -18,8 +18,8 @@ export default function PageDateTitle({ heading, description }: Props) {
       paddingBottom: 8,
     },
     heading: {
-      fontWeight: 500,
-      fontSize: 32,
+      fontWeight: 700,
+      fontSize: 30,
       marginBottom: 4,
     },
     description: {
