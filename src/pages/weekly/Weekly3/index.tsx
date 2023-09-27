@@ -5,11 +5,6 @@ import Notes from "pages/weekly/Weekly3/Notes";
 import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 import Day from "pages/weekly/Weekly3/Day";
 import PageDateTitle from "components/PageDateTitle";
-import { useSelector } from "react-redux";
-import { selectDaily } from "stores/reducers/daily";
-import moment from "moment";
-import { getWeekDates } from "common/dayTimeUtils";
-import { DailyRendering } from "common/plannerRendering";
 
 const styles = StyleSheet.create({
   page: {
@@ -40,66 +35,54 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  id: number;
-  year: number;
-  month: number;
-  startDate: number;
+  id: string;
+  heading: string;
+  description: string;
 }
 
-export const Weekly3 = ({ id, year, month, startDate }: Props) => {
-  const { dailyLayout } = useSelector(selectDaily());
-  const weeks = getWeekDates(year, month, startDate);
-  let firstWeek = 0;
-  const elms = weeks.map((w) => {
-    const heading = moment().year(year).month(month).format("MMMM YYYY");
-    const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
-      "DD MMMM"
-    )}`;
-    return (
-      <>
-        <Page
-          size="A4"
-          style={styles.page}
-          orientation="landscape"
-          id={`${String(id)}-${String(firstWeek++)}`}
-          wrap={false}
-        >
-          <View>
-            <PageDateTitle heading={heading} description={description} />
+export const Weekly3 = ({ id, heading, description }: Props) => {
+  return (
+    <>
+      <Page
+        size="A4"
+        style={styles.page}
+        orientation="landscape"
+        id={id}
+        wrap={false}
+      >
+        <View>
+          <PageDateTitle heading={heading} description={description} />
+        </View>
+        <View style={styles.container}>
+          <View style={styles.left}>
+            <Heading title="SCHEDULE" />
+            <Day />
+            <Day />
+            <Day />
+            <Day />
+            <Day />
+            <Day />
+            <Day />
           </View>
-          <View style={styles.container}>
-            <View style={styles.left}>
-              <Heading title="SCHEDULE" />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
+          <View style={styles.right}>
+            <View style={styles.priorities}>
+              <Heading title="WEEK’S PRIORITIES" />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
+              <PriorityRow />
             </View>
-            <View style={styles.right}>
-              <View style={styles.priorities}>
-                <Heading title="WEEK’S PRIORITIES" />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-              </View>
 
-              <View style={styles.notes}>
-                <Notes />
-              </View>
+            <View style={styles.notes}>
+              <Notes />
             </View>
           </View>
-        </Page>
-        {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
-      </>
-    );
-  });
-  return elms;
+        </View>
+      </Page>
+    </>
+  );
 };

@@ -7,6 +7,11 @@ import { Weekly1 } from "./weekly/Weekly1";
 import { useSelector } from "react-redux";
 import clashDisplayRegular from "./../assets/fonts/ClashDisplay-Regular.otf";
 import clashDisplayBold from "./../assets/fonts/ClashDisplay-Bold.otf";
+import { getWeekDates } from "common/dayTimeUtils";
+import moment from "moment";
+import { DailyRendering } from "common/plannerRendering";
+import { selectDaily } from "stores/reducers/daily";
+import { Weekly3 } from "./weekly/Weekly3";
 // import clashDisplaySemiBold from "./../assets/fonts/ClashDisplay-Semibold.ttf";
 // import clashDisplayMedium from "./../assets/fonts/ClashDisplay-Medium.ttf";
 
@@ -22,52 +27,78 @@ Font.register({
   ],
 });
 
-// Font.register({
-//   family: "Clash Display-Regular",
-//   src: clashDisplayRegular,
-//   fontWeight: "normal",
-// });
-
-// Font.register({
-//   family: "Clash Display-Bold",
-//   src: clashDisplayBold,
-//   fontWeight: "bold",
-// });
-
-// Font.register({
-//   family: "Clash Display-Medium",
-//   src: clashDisplayMedium,
-//   fontWeight: "medium",
-// });
-
-// Font.register({
-//   family: "Clash Display-Semibold",
-//   src: clashDisplaySemiBold,
-//   fontWeight: "semibold",
-// });
-
 const MainDocument = () => {
   const { weeklyLayout } = useSelector(selectWeekly());
+  const { dailyLayout } = useSelector(selectDaily());
 
-  const renderWeekly = (m: number, startDate: number) => {
-    if (weeklyLayout === WeeklyType.Boxed)
-      return (
-        <Weekly1 id={m} year={2023} month={m} startDate={startDate} key={m} />
-      );
-    if (weeklyLayout === WeeklyType.Hourly)
-      return (
-        <Weekly2 id={m} year={2023} month={m} startDate={startDate} key={m} />
-      );
-    if (weeklyLayout === WeeklyType.Lined)
-      return (
-        <Weekly2 id={m} year={2023} month={m} startDate={startDate} key={m} />
-      );
-    return (
-      <Weekly4 id={m} year={2023} month={m} startDate={startDate} key={m} />
-    );
+  const renderLandscape = (m: number, startDate: number) => {
+    const weeks = getWeekDates(2023, m, startDate);
+    const elms = weeks.map((w) => {
+      const heading = moment().year(2023).month(m).format("MMMM YYYY");
+      const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
+        "DD MMMM"
+      )}`;
+
+      if (weeklyLayout === WeeklyType.Boxed) {
+        let firstWeek = 0;
+        return (
+          <>
+            <Weekly1
+              id={`${String(m)}-${String(firstWeek++)}`}
+              heading={heading}
+              description={description}
+              days={w}
+              key={m}
+            />
+            {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
+          </>
+        );
+      } else if (weeklyLayout === WeeklyType.Hourly) {
+        let firstWeek = 0;
+        return (
+          <>
+            <Weekly2
+              id={`${String(m)}-${String(firstWeek++)}`}
+              heading={heading}
+              description={description}
+              key={m}
+            />
+            {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
+          </>
+        );
+      } else if (weeklyLayout === WeeklyType.Lined) {
+        let firstWeek = 0;
+        return (
+          <>
+            <Weekly3
+              id={`${String(m)}-${String(firstWeek++)}`}
+              heading={heading}
+              description={description}
+              key={m}
+            />
+            {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
+          </>
+        );
+      } else {
+        let firstWeek = 0;
+        return (
+          <>
+            <Weekly4
+              id={`${String(m)}-${String(firstWeek++)}`}
+              heading={heading}
+              description={description}
+              days={w}
+              key={m}
+            />
+          </>
+        );
+      }
+    });
+
+    return elms;
   };
 
-  const elms = months.map((m) => renderWeekly(m, 1));
+  const elms = months.map((m) => renderLandscape(m, 1));
 
   return <Document style={{ fontFamily: "Clash Display" }}>{elms}</Document>;
 };
