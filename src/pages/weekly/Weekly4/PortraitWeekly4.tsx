@@ -71,25 +71,12 @@ export const PortraitWeekly4 = () => {
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle
-              heading={"heading"}
-              description={`${"description"}`}
-            />
+            <PageDateTitle heading={"heading"} description={`${"description"}`} />
           </View>
 
           <View style={styles.container}>
             <View style={styles.top}>
-              <DayTable
-                days={[
-                  moment(),
-                  moment(),
-                  moment(),
-                  moment(),
-                  moment(),
-                  moment(),
-                  moment(),
-                ]}
-              />
+              <DayTable days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]} />
             </View>
 
             <View style={styles.bottom}>
@@ -112,7 +99,7 @@ export const PortraitWeekly4 = () => {
         </View>
 
         <View style={styles.sidebar}>
-          <Sidebar />
+          <Sidebar portraitPaddingVertical={29} />
         </View>
       </View>
     </Page>

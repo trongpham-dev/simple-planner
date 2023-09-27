@@ -2,7 +2,11 @@ import { StyleSheet, View } from "@react-pdf/renderer";
 import SidebarMonthItem from "components/Sidebar/SidebarDayItem";
 import { COLOR } from "constants/color";
 
-export default function Sidebar() {
+interface Props {
+  portraitPaddingVertical?: number;
+}
+
+export default function Sidebar({ portraitPaddingVertical }: Props) {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: COLOR.GRAY,
@@ -65,7 +69,7 @@ export default function Sidebar() {
   return (
     <View style={styles.container}>
       {monthLinks.map((m, i) => (
-        <SidebarMonthItem month={m.month} src={m.src} key={i} />
+        <SidebarMonthItem month={m.month} src={m.src} key={i} portraitPaddingVertical={portraitPaddingVertical} />
       ))}
     </View>
   );

@@ -127,7 +127,7 @@ export const PortraitDaily2 = () => {
           </View>
         </View>
         <View style={styles.sidebar}>
-          <Sidebar />
+          <Sidebar portraitPaddingVertical={28} />
         </View>
       </View>
     </Page>

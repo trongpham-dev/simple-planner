@@ -7,9 +7,10 @@ import { selectTheme } from "stores/reducers/theme";
 interface Props {
   month: string;
   src: string;
+  portraitPaddingVertical?: number;
 }
 
-export default function SidebarMonthItem({ month, src }: Props) {
+export default function SidebarMonthItem({ month, src, portraitPaddingVertical }: Props) {
   const { color } = useSelector(selectTheme());
   const styles = StyleSheet.create({
     container: {
@@ -24,7 +25,7 @@ export default function SidebarMonthItem({ month, src }: Props) {
       alignItems: "center",
 
       "@media orientation: portrait": {
-        paddingVertical: 27,
+        paddingVertical: portraitPaddingVertical || 27,
       },
     },
     text: {

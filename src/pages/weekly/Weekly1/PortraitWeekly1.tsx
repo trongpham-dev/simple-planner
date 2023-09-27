@@ -109,7 +109,7 @@ export const PortraitWeekly1 = () => {
             </View>
           </View>
           <View style={styles.sidebar}>
-            <Sidebar />
+            <Sidebar portraitPaddingVertical={29} />
           </View>
         </View>
       </Page>

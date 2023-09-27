@@ -58,10 +58,7 @@ export const PortraitWeekly3 = () => {
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle
-              heading={"heading"}
-              description={`${"description"}`}
-            />
+            <PageDateTitle heading={"heading"} description={`${"description"}`} />
           </View>
 
           <View style={styles.container}>
@@ -97,7 +94,7 @@ export const PortraitWeekly3 = () => {
         </View>
 
         <View style={styles.sidebar}>
-          <Sidebar />
+          <Sidebar portraitPaddingVertical={28} />
         </View>
       </View>
     </Page>
