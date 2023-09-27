@@ -27,8 +27,8 @@ function App() {
     <PDFViewer className="w-full h-full">
       <Provider store={store}>
         <Document>
-          <PortraitDaily1 />
-          {/* <PortraitDaily2 /> */}
+          {/* <PortraitDaily1 /> */}
+          <PortraitDaily2 />
           {/* <PortraitWeekly1 /> */}
           {/* <PortraitWeekly2 /> */}
           {/* <PortraitWeekly4 /> */}

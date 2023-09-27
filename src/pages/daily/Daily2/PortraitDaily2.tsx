@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   rMiddle2: {
     height: "20%",
-    marginBottom: 10,
+    marginBottom: 15,
   },
   rBottom: {
     height: "20%",

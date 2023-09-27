@@ -1,9 +1,6 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { ThemeColors } from "common/plannerOptions";
-import {
-  handleBgColor,
-  handleBorderBottomColor,
-} from "common/plannerRendering";
+import { handleBgColor, handleBorderBottomColor } from "common/plannerRendering";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 
@@ -20,6 +17,10 @@ export default function TimeScheduleRow({ timeSchedule }: Props) {
       width: "100%",
       height: 19,
       marginTop: 8,
+
+      "@media orientation: portrait": {
+        height: 21,
+      },
     },
     time: {
       color: ThemeColors.get(color),
