@@ -2,7 +2,7 @@ import { Document, Font } from "@react-pdf/renderer";
 import { Weekly4 } from "./weekly/Weekly4";
 import { Weekly2 } from "./weekly/Weekly2";
 import { selectWeekly } from "stores/reducers/weekly";
-import { WeeklyType } from "models/enum";
+import { Orientation, WeeklyType } from "models/enum";
 import { Weekly1 } from "./weekly/Weekly1";
 import { useSelector } from "react-redux";
 import clashDisplayRegular from "./../assets/fonts/ClashDisplay-Regular.otf";
@@ -12,6 +12,9 @@ import moment from "moment";
 import { DailyRendering } from "common/plannerRendering";
 import { selectDaily } from "stores/reducers/daily";
 import { Weekly3 } from "./weekly/Weekly3";
+import { selectTheme } from "stores/reducers/theme";
+import { PortraitDaily1 } from "./daily/Daily1/PortraitDaily1";
+import { PortraitWeekly1 } from "./weekly/Weekly1/PortraitWeekly1";
 // import clashDisplaySemiBold from "./../assets/fonts/ClashDisplay-Semibold.ttf";
 // import clashDisplayMedium from "./../assets/fonts/ClashDisplay-Medium.ttf";
 
@@ -28,6 +31,7 @@ Font.register({
 });
 
 const MainDocument = () => {
+  const { orientation } = useSelector(selectTheme());
   const { weeklyLayout } = useSelector(selectWeekly());
   const { dailyLayout } = useSelector(selectDaily());
 
@@ -39,22 +43,31 @@ const MainDocument = () => {
         "DD MMMM"
       )}`;
 
+      let firstWeek = 0;
       if (weeklyLayout === WeeklyType.Boxed) {
-        let firstWeek = 0;
         return (
           <>
-            <Weekly1
-              id={`${String(m)}-${String(firstWeek++)}`}
-              heading={heading}
-              description={description}
-              days={w}
-              key={m}
-            />
+            {orientation === Orientation.Landscape ? (
+              <Weekly1
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            ) : (
+              <PortraitWeekly1
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            )}
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
         );
       } else if (weeklyLayout === WeeklyType.Hourly) {
-        let firstWeek = 0;
         return (
           <>
             <Weekly2
@@ -67,7 +80,6 @@ const MainDocument = () => {
           </>
         );
       } else if (weeklyLayout === WeeklyType.Lined) {
-        let firstWeek = 0;
         return (
           <>
             <Weekly3
@@ -80,7 +92,6 @@ const MainDocument = () => {
           </>
         );
       } else {
-        let firstWeek = 0;
         return (
           <>
             <Weekly4

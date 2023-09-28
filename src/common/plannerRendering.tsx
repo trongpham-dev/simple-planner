@@ -1,12 +1,27 @@
 import { Moment } from "moment";
-import { ColorType, DailyType } from "models/enum";
+import { ColorType, DailyType, Orientation } from "models/enum";
 import { Daily1 } from "pages/daily/Daily1";
 import { Daily2 } from "pages/daily/Daily2";
 import { COLOR } from "constants/color";
+import { useSelector } from "react-redux";
+import { selectTheme } from "stores/reducers/theme";
+import { PortraitDaily1 } from "pages/daily/Daily1/PortraitDaily1";
+import { PortraitDaily2 } from "pages/daily/Daily2/PortraitDaily2";
 
 export const DailyRendering = (layout: string, day: Moment, id: number) => {
-  if (layout === DailyType.Minimal) return <Daily1 key={id} day={day} />;
-  return <Daily2 key={id} day={day} />;
+  const { orientation } = useSelector(selectTheme());
+
+  if (layout === DailyType.Minimal)
+    return orientation === Orientation.Landscape ? (
+      <Daily1 key={id} day={day} />
+    ) : (
+      <PortraitDaily1 key={id} day={day} />
+    );
+  return orientation === Orientation.Landscape ? (
+    <Daily2 key={id} day={day} />
+  ) : (
+    <PortraitDaily2 key={id} day={day} />
+  );
 };
 
 export const handleBorderBottomColor = (color: string) => {

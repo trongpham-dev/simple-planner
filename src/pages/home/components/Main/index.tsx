@@ -6,16 +6,36 @@ import { SelectWeeklyLayout } from "./ChooseWeeklyLayout";
 import { nextStep, prevStep, selectStep } from "stores/reducers/step";
 import { SelectDailyLayout } from "./ChooseDailyLayout";
 import { ExportPlanner } from "./ExportPlanner";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink, pdf } from "@react-pdf/renderer";
 import MainDocument from "pages/MainDocument";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import { store } from "stores";
 import { selectWeekly } from "stores/reducers/weekly";
 import { selectDaily } from "stores/reducers/daily";
+import { saveAs } from "file-saver";
+import { useState } from "react";
 
 type Props = {
   className?: string;
+};
+
+const generatePdfDocument = async (
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  try {
+    setLoading(true);
+    const blob = await pdf(
+      <Provider store={store}>
+        <MainDocument />
+      </Provider>
+    ).toBlob();
+    saveAs(blob, "somename");
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
 };
 
 export default function Main({ className }: Props) {
@@ -23,6 +43,11 @@ export default function Main({ className }: Props) {
   const { step } = useSelector(selectStep());
   const { weeklyLayout } = useSelector(selectWeekly());
   const { dailyLayout } = useSelector(selectDaily());
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleLoading = () => {
+    setLoading(!loading);
+  };
 
   const dispatch = useDispatch();
 
@@ -51,12 +76,22 @@ export default function Main({ className }: Props) {
     return <StartingLayout />;
   };
 
-  const renderButtons = () => {
+  const renderButtons = (
+    loading: boolean,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
     const disable = handleDisableNextStep();
     if (step === 4)
       return (
-        <Button type="primary" className="black-btn mt-[92px]">
-          <PDFDownloadLink
+        <Button
+          type="primary"
+          className="black-btn mt-[92px]"
+          loading={loading}
+          onClick={async () => {
+            await generatePdfDocument(setLoading);
+          }}
+        >
+          {/* <PDFDownloadLink
             document={
               <Provider store={store}>
                 <MainDocument />
@@ -67,7 +102,8 @@ export default function Main({ className }: Props) {
             {({ blob, url, loading, error }) =>
               loading ? "Loading document..." : "DOWNLOAD HERE"
             }
-          </PDFDownloadLink>
+          </PDFDownloadLink> */}
+          Download
         </Button>
       );
     return (
@@ -102,7 +138,7 @@ export default function Main({ className }: Props) {
   return (
     <div className={`${className} pt-5 pb-12 flex flex-col items-center`}>
       {renderCurrStepComponent()}
-      {renderButtons()}
+      {renderButtons(loading, handleLoading)}
     </div>
   );
 }

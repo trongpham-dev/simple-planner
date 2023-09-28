@@ -9,7 +9,7 @@ import Sidebar from "components/Sidebar";
 import TimeScheduleWithDetailHeading from "components/TimeScheduleWithDetailHeading";
 import TodoList from "components/TodoList";
 import { COLOR } from "constants/color";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -78,9 +78,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PortraitDaily2 = () => {
-  const heading = moment().format("DD dddd");
-  const description = moment().format("MMMM YYYY");
+interface Props {
+  day: Moment;
+}
+
+export const PortraitDaily2 = ({ day }: Props) => {
+  const heading = day.format("DD dddd");
+  const description = day.format("MMMM YYYY");
 
   return (
     <Page size="A4" style={styles.page} orientation="portrait">
