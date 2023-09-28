@@ -42,30 +42,16 @@ const MainDocument = () => {
     const weeks = getWeekDates(2023, m, startDate);
     const elms = weeks.map((w) => {
       const heading = moment().year(2023).month(m).format("MMMM YYYY");
-      const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format(
-        "DD MMMM"
-      )}`;
+      const description = `${w[0].format("DD MMMM")} - ${w[w.length - 1].format("DD MMMM")}`;
 
       let firstWeek = 0;
       if (weeklyLayout === WeeklyType.Boxed) {
         return (
           <>
             {orientation === Orientation.Landscape ? (
-              <Weekly1
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <Weekly1 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             ) : (
-              <PortraitWeekly1
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <PortraitWeekly1 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             )}
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
@@ -74,21 +60,9 @@ const MainDocument = () => {
         return (
           <>
             {orientation === Orientation.Landscape ? (
-              <Weekly2
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <Weekly2 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             ) : (
-              <PortraitWeekly2
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <PortraitWeekly2 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             )}
 
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
@@ -98,21 +72,9 @@ const MainDocument = () => {
         return (
           <>
             {orientation === Orientation.Landscape ? (
-              <Weekly3
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                key={m}
-                days={w}
-              />
+              <Weekly3 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} key={m} days={w} />
             ) : (
-              <PortraitWeekly3
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                key={m}
-                days={w}
-              />
+              <PortraitWeekly3 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} key={m} days={w} />
             )}
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
@@ -121,21 +83,9 @@ const MainDocument = () => {
         return (
           <>
             {orientation === Orientation.Landscape ? (
-              <Weekly4
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <Weekly4 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             ) : (
-              <PortraitWeekly4
-                id={`${String(m)}-${String(firstWeek++)}`}
-                heading={heading}
-                description={description}
-                days={w}
-                key={m}
-              />
+              <PortraitWeekly4 id={`${String(m)}-${String(firstWeek++)}`} heading={heading} description={description} days={w} key={m} />
             )}
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>

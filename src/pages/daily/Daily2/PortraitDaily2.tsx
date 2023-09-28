@@ -1,6 +1,7 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 
 import BlankRowCard from "components/BlankRowCard";
+import Calendar from "components/Calendar";
 import EatTodayCard from "components/EatTodayCard";
 import MainFocusCard from "components/MainFocusCard";
 import PageDateTitle from "components/PageDateTitle";
@@ -9,7 +10,7 @@ import Sidebar from "components/Sidebar";
 import TimeScheduleWithDetailHeading from "components/TimeScheduleWithDetailHeading";
 import TodoList from "components/TodoList";
 import { COLOR } from "constants/color";
-import moment, { Moment } from "moment";
+import { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -76,6 +77,11 @@ const styles = StyleSheet.create({
   rBottom: {
     height: "20%",
   },
+
+  pageHeading: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
 
 interface Props {
@@ -90,8 +96,13 @@ export const PortraitDaily2 = ({ day }: Props) => {
     <Page size="A4" style={styles.page} orientation="portrait">
       <View style={styles.wrapper}>
         <View style={styles.main}>
-          <View>
+          <View style={styles.pageHeading}>
             <PageDateTitle heading={heading} description={description} />
+            <Calendar
+              context={{
+                date: new Date("2023-04-1"),
+              }}
+            />
           </View>
           <View style={styles.container}>
             <View style={styles.left}>
