@@ -71,7 +71,7 @@ export const Weekly4 = ({ id, heading, description, days }: Props) => {
         <View style={styles.wrapper}>
           <View style={styles.main}>
             <View style={styles.heading}>
-              <PageDateTitle heading={heading} description={`${description}`} />
+              <PageDateTitle heading={heading} description={description} />
             </View>
 
             <View style={styles.container}>

@@ -2,6 +2,7 @@ import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
 import TimeTable from "components/TimeTable";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   page: {
@@ -58,16 +59,29 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PortraitWeekly2 = () => {
+interface Props {
+  id: string;
+  heading: string;
+  description: string;
+  days: Moment[];
+}
+
+export const PortraitWeekly2 = ({ id, heading, description, days }: Props) => {
   return (
-    <Page size="A4" style={styles.page} orientation="portrait">
+    <Page
+      size="A4"
+      style={styles.page}
+      orientation="portrait"
+      id={id}
+      wrap={false}
+    >
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle heading={"heading"} description={"description"} />
+            <PageDateTitle heading={heading} description={description} />
           </View>
           <View style={styles.container}>
-            <TimeTable />
+            <TimeTable days={days} />
           </View>
         </View>
 

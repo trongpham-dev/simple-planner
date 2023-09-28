@@ -2,6 +2,7 @@ import { Page, StyleSheet, View } from "@react-pdf/renderer";
 
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
+import { Moment } from "moment";
 import Day from "pages/weekly/Weekly3/Day";
 import Heading from "pages/weekly/Weekly3/Heading";
 import Notes from "pages/weekly/Weekly3/Notes";
@@ -52,25 +53,34 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PortraitWeekly3 = () => {
+interface Props {
+  id: string;
+  heading: string;
+  description: string;
+  days: Moment[];
+}
+
+export const PortraitWeekly3 = ({ id, heading, description, days }: Props) => {
   return (
-    <Page size="A4" style={styles.page} orientation="portrait">
+    <Page
+      size="A4"
+      style={styles.page}
+      orientation="portrait"
+      wrap={false}
+      id={id}
+    >
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle heading={"heading"} description={`${"description"}`} />
+            <PageDateTitle heading={heading} description={description} />
           </View>
 
           <View style={styles.container}>
             <View style={styles.top}>
               <Heading title="SCHEDULE" />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
-              <Day />
+              {days.map((d) => (
+                <Day day={d} />
+              ))}
             </View>
 
             <View style={styles.bottom}>

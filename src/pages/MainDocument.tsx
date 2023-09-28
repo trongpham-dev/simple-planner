@@ -15,6 +15,9 @@ import { Weekly3 } from "./weekly/Weekly3";
 import { selectTheme } from "stores/reducers/theme";
 import { PortraitDaily1 } from "./daily/Daily1/PortraitDaily1";
 import { PortraitWeekly1 } from "./weekly/Weekly1/PortraitWeekly1";
+import { PortraitWeekly2 } from "./weekly/Weekly2/PortraitWeekly2";
+import { PortraitWeekly3 } from "./weekly/Weekly3/PortraitWeekly3";
+import { PortraitWeekly4 } from "./weekly/Weekly4/PortraitWeekly4";
 // import clashDisplaySemiBold from "./../assets/fonts/ClashDisplay-Semibold.ttf";
 // import clashDisplayMedium from "./../assets/fonts/ClashDisplay-Medium.ttf";
 
@@ -70,37 +73,71 @@ const MainDocument = () => {
       } else if (weeklyLayout === WeeklyType.Hourly) {
         return (
           <>
-            <Weekly2
-              id={`${String(m)}-${String(firstWeek++)}`}
-              heading={heading}
-              description={description}
-              key={m}
-            />
+            {orientation === Orientation.Landscape ? (
+              <Weekly2
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            ) : (
+              <PortraitWeekly2
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            )}
+
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
         );
       } else if (weeklyLayout === WeeklyType.Lined) {
         return (
           <>
-            <Weekly3
-              id={`${String(m)}-${String(firstWeek++)}`}
-              heading={heading}
-              description={description}
-              key={m}
-            />
+            {orientation === Orientation.Landscape ? (
+              <Weekly3
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                key={m}
+                days={w}
+              />
+            ) : (
+              <PortraitWeekly3
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                key={m}
+                days={w}
+              />
+            )}
             {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
         );
       } else {
         return (
           <>
-            <Weekly4
-              id={`${String(m)}-${String(firstWeek++)}`}
-              heading={heading}
-              description={description}
-              days={w}
-              key={m}
-            />
+            {orientation === Orientation.Landscape ? (
+              <Weekly4
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            ) : (
+              <PortraitWeekly4
+                id={`${String(m)}-${String(firstWeek++)}`}
+                heading={heading}
+                description={description}
+                days={w}
+                key={m}
+              />
+            )}
+            {w.map((d, i) => DailyRendering(dailyLayout!, d, i))}
           </>
         );
       }

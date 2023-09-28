@@ -5,6 +5,7 @@ import Notes from "pages/weekly/Weekly3/Notes";
 import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 import Day from "pages/weekly/Weekly3/Day";
 import PageDateTitle from "components/PageDateTitle";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   page: {
@@ -38,9 +39,10 @@ interface Props {
   id: string;
   heading: string;
   description: string;
+  days: Moment[];
 }
 
-export const Weekly3 = ({ id, heading, description }: Props) => {
+export const Weekly3 = ({ id, heading, description, days }: Props) => {
   return (
     <>
       <Page
@@ -56,13 +58,9 @@ export const Weekly3 = ({ id, heading, description }: Props) => {
         <View style={styles.container}>
           <View style={styles.left}>
             <Heading title="SCHEDULE" />
-            <Day />
-            <Day />
-            <Day />
-            <Day />
-            <Day />
-            <Day />
-            <Day />
+            {days.map((d) => (
+              <Day day={d} />
+            ))}
           </View>
           <View style={styles.right}>
             <View style={styles.priorities}>

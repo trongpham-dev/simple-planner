@@ -3,7 +3,7 @@ import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
 import TodoCard from "components/TodoCard";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import Notes from "pages/weekly/Weekly3/Notes";
 
 const styles = StyleSheet.create({
@@ -65,18 +65,41 @@ const styles = StyleSheet.create({
   },
 });
 
-export const PortraitWeekly4 = () => {
+interface Props {
+  id: string;
+  heading: string;
+  description: string;
+  days: Moment[];
+}
+
+export const PortraitWeekly4 = ({ id, heading, description, days }: Props) => {
   return (
-    <Page size="A4" style={styles.page} wrap={false} orientation="portrait">
+    <Page
+      size="A4"
+      style={styles.page}
+      wrap={false}
+      orientation="portrait"
+      id={id}
+    >
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
-            <PageDateTitle heading={"heading"} description={`${"description"}`} />
+            <PageDateTitle heading={heading} description={description} />
           </View>
 
           <View style={styles.container}>
             <View style={styles.top}>
-              <DayTable days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]} />
+              <DayTable
+                days={[
+                  days[0],
+                  days[1],
+                  days[2],
+                  days[3],
+                  days[4],
+                  days[5],
+                  days[6],
+                ]}
+              />
             </View>
 
             <View style={styles.bottom}>

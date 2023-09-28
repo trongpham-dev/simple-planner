@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
+import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   container: {
@@ -14,12 +15,24 @@ const styles = StyleSheet.create({
     paddingLeft: 8,
     fontSize: 13,
   },
+  number: {
+    fontWeight: 700,
+    marginRight: 6,
+  },
+  text: {
+    fontWeight: 400,
+  },
 });
 
-export default function Day() {
+interface Props {
+  day: Moment;
+}
+
+export default function Day({ day }: Props) {
   return (
     <View style={styles.container}>
-      <Text>07 Monday</Text>
+      <Text style={styles.number}>{day.format("DD")}</Text>
+      <Text style={styles.text}>{day.format("dddd")}</Text>
     </View>
   );
 }

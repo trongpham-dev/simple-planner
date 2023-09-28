@@ -2,12 +2,16 @@ import { StyleSheet, View } from "@react-pdf/renderer";
 
 import TimeTableBlankRow from "./TimeTableBlankRow";
 import TimeTableHeader from "./TimeTableHeader";
-import moment from "moment";
+import moment, { Moment } from "moment";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 import { handleBorderBottomColor } from "common/plannerRendering";
 
-const TimeTable = () => {
+interface Props {
+  days: Moment[];
+}
+
+const TimeTable = ({ days }: Props) => {
   const { color } = useSelector(selectTheme());
 
   const styles = StyleSheet.create({
@@ -22,15 +26,7 @@ const TimeTable = () => {
   return (
     <View style={styles.tableContainer}>
       <TimeTableHeader
-        days={[
-          moment(),
-          moment(),
-          moment(),
-          moment(),
-          moment(),
-          moment(),
-          moment(),
-        ]}
+        days={[days[0], days[1], days[2], days[3], days[4], days[5], days[6]]}
       />
       <TimeTableBlankRow rowsCount={18} />
     </View>
