@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
 import { COLOR } from "constants/color";
 import { CalendarContext } from "models/CalendarContext";
 import moment from "moment";
@@ -43,6 +43,9 @@ const styles = StyleSheet.create({
   highlight: {
     backgroundColor: COLOR.LIGHT_BROWN,
   },
+  link: {
+    textDecoration: "none",
+  },
 });
 
 type Props = {
@@ -72,19 +75,21 @@ export default function Calendar({ customStyles, context }: Props) {
         const isHighlight = activeDates.some((activeDate) => isSameDay(activeDate, item));
 
         return (
-          <Text
-            style={[
-              styles.text,
-              isDisable ? styles.disable : {},
-              isHighlight ? styles.highlight : {},
-              isStartHighlight ? styles.startHighlight : {},
-              isEndHighlight ? styles.endHighlight : {},
-              isCircleHighlight ? styles.circleHighlight : {},
-            ]}
-            key={i}
-          >
-            {day}
-          </Text>
+          <Link src={item.toString()} style={styles.link}>
+            <Text
+              style={[
+                styles.text,
+                isDisable ? styles.disable : {},
+                isHighlight ? styles.highlight : {},
+                isStartHighlight ? styles.startHighlight : {},
+                isEndHighlight ? styles.endHighlight : {},
+                isCircleHighlight ? styles.circleHighlight : {},
+              ]}
+              key={i}
+            >
+              {day}
+            </Text>
+          </Link>
         );
       })}
     </View>

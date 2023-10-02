@@ -17,11 +17,7 @@ export const DailyRendering = (layout: string, day: Moment, id: number) => {
     ) : (
       <PortraitDaily1 key={id} day={day} />
     );
-  return orientation === Orientation.Landscape ? (
-    <Daily2 key={id} day={day} />
-  ) : (
-    <PortraitDaily2 key={id} day={day} />
-  );
+  return orientation === Orientation.Landscape ? <Daily2 key={id} day={day} /> : <PortraitDaily2 key={id} day={day} />;
 };
 
 export const handleBorderBottomColor = (color: string) => {

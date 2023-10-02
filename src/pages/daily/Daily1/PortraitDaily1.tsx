@@ -75,14 +75,14 @@ export const PortraitDaily1 = ({ day }: Props) => {
   const description = day.format("MMMM YYYY");
 
   return (
-    <Page size="A4" style={styles.page} orientation="portrait" wrap={false}>
+    <Page size="A4" style={styles.page} orientation="portrait" wrap={false} id={day.toString()}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.pageHeading}>
             <PageDateTitle heading={heading} description={description} />
             <Calendar
               context={{
-                date: new Date("2023-04-1"),
+                date: day.toDate(),
               }}
             />
           </View>
