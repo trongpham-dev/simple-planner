@@ -10,17 +10,20 @@ interface Props {
 
 export default function PageDateTitle({ heading, description }: Props) {
   const { color } = useSelector(selectTheme());
-  // const color = "#333333";
 
   const styles = StyleSheet.create({
     container: {
       color: ThemeColors.get(color),
-      paddingBottom: 8,
+      paddingBottom: 4,
     },
     heading: {
       fontWeight: 700,
       fontSize: 30,
-      marginBottom: 4,
+      marginBottom: 6,
+
+      "@media orientation: portrait": {
+        marginBottom: 4,
+      },
     },
     description: {
       fontSize: 12,

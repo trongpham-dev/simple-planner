@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.LIGHT_GRAY,
     paddingLeft: 8,
     paddingRight: 8,
-    paddingTop: 8,
+    // paddingTop: 8,
   },
   orderContainer: {
     backgroundColor: COLOR.LIGHT_BROWN,

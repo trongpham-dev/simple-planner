@@ -1,4 +1,5 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import Calendar from "components/Calendar";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
 import TimeTable from "components/TimeTable";
@@ -21,6 +22,9 @@ const styles = StyleSheet.create({
   },
   heading: {
     marginBottom: 6,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   container: {
     marginTop: 4,
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   sidebar: {
-    width: "5%",
+    width: "6%",
     height: "100%",
     marginLeft: 4,
   },
@@ -68,17 +72,17 @@ interface Props {
 
 export const PortraitWeekly2 = ({ id, heading, description, days }: Props) => {
   return (
-    <Page
-      size="A4"
-      style={styles.page}
-      orientation="portrait"
-      id={id}
-      wrap={false}
-    >
+    <Page size="A4" style={styles.page} orientation="portrait" id={id} wrap={false}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
             <PageDateTitle heading={heading} description={description} />
+            <Calendar
+              context={{
+                date: new Date("2023-04-1"),
+                activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+              }}
+            />
           </View>
           <View style={styles.container}>
             <TimeTable days={days} />

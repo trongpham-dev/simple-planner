@@ -1,4 +1,5 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import Calendar from "components/Calendar";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
 import moment, { Moment } from "moment";
@@ -23,6 +24,9 @@ const styles = StyleSheet.create({
   },
   heading: {
     marginBottom: 6,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   container: {
     marginTop: 4,
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   sidebar: {
-    width: "5%",
+    width: "6%",
     height: "100%",
     marginLeft: 4,
   },
@@ -71,17 +75,17 @@ interface Props {
 export const PortraitWeekly1 = ({ id, heading, description, days }: Props) => {
   return (
     <>
-      <Page
-        size="A4"
-        style={styles.page}
-        orientation="portrait"
-        wrap={false}
-        id={id}
-      >
+      <Page size="A4" style={styles.page} orientation="portrait" wrap={false} id={id}>
         <View style={styles.wrapper}>
           <View style={styles.main}>
             <View style={styles.heading}>
               <PageDateTitle heading={heading} description={description} />
+              <Calendar
+                context={{
+                  date: new Date("2023-04-1"),
+                  activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+                }}
+              />
             </View>
             <View style={styles.container}>
               <View style={styles.top}>{renderDayCard(0, 2, days)}</View>

@@ -17,15 +17,21 @@ const styles = StyleSheet.create({
     width: 16,
     textAlign: "center",
     alignContent: "center",
+    color: COLOR.BLACK,
+
+    "@media orientation: landscape": {
+      paddingVertical: 3,
+      marginBottom: 1,
+    },
   },
 
   startHighlight: {
-    borderTopLeftRadius: 5,
-    borderBottomLeftRadius: 5,
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8,
   },
   endHighlight: {
-    borderTopRightRadius: 5,
-    borderBottomRightRadius: 5,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
   },
   circleHighlight: {
     borderRadius: "50%",

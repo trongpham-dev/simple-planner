@@ -6,13 +6,33 @@ import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 import Day from "pages/weekly/Weekly3/Day";
 import PageDateTitle from "components/PageDateTitle";
 import { Moment } from "moment";
+import Calendar from "components/Calendar";
+import Sidebar from "components/Sidebar";
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 10,
-    paddingRight: 15,
     paddingLeft: 15,
+  },
+  wrapper: {
+    width: "100%",
+    flexDirection: "row",
+  },
+  main: {
+    width: "95%",
+    paddingTop: 10,
     paddingBottom: 20,
+    paddingRight: 8,
+    flexGrow: 1,
+  },
+  heading: {
+    marginBottom: 4,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  sidebar: {
+    width: "5%",
+    height: "100%",
+    marginLeft: 4,
   },
   container: {
     flexDirection: "row",
@@ -45,39 +65,46 @@ interface Props {
 export const Weekly3 = ({ id, heading, description, days }: Props) => {
   return (
     <>
-      <Page
-        size="A4"
-        style={styles.page}
-        orientation="landscape"
-        id={id}
-        wrap={false}
-      >
-        <View>
-          <PageDateTitle heading={heading} description={description} />
-        </View>
-        <View style={styles.container}>
-          <View style={styles.left}>
-            <Heading title="SCHEDULE" />
-            {days.map((d) => (
-              <Day day={d} />
-            ))}
-          </View>
-          <View style={styles.right}>
-            <View style={styles.priorities}>
-              <Heading title="WEEK’S PRIORITIES" />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
-              <PriorityRow />
+      <Page size="A4" style={styles.page} orientation="landscape" id={id} wrap={false}>
+        <View style={styles.wrapper}>
+          <View style={styles.main}>
+            <View style={styles.heading}>
+              <PageDateTitle heading={heading} description={description} />
+              <Calendar
+                context={{
+                  date: new Date("2023-04-1"),
+                  activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+                }}
+              />
             </View>
+            <View style={styles.container}>
+              <View style={styles.left}>
+                <Heading title="SCHEDULE" />
+                {days.map((d) => (
+                  <Day day={d} />
+                ))}
+              </View>
+              <View style={styles.right}>
+                <View style={styles.priorities}>
+                  <Heading title="WEEK’S PRIORITIES" />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                  <PriorityRow />
+                </View>
 
-            <View style={styles.notes}>
-              <Notes />
+                <View style={styles.notes}>
+                  <Notes />
+                </View>
+              </View>
             </View>
+          </View>
+          <View style={styles.sidebar}>
+            <Sidebar />
           </View>
         </View>
       </Page>

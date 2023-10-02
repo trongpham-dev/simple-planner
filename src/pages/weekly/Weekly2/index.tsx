@@ -1,17 +1,38 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import Calendar from "components/Calendar";
 import PageDateTitle from "components/PageDateTitle";
+import Sidebar from "components/Sidebar";
 import TimeTable from "components/TimeTable";
 import { Moment } from "moment";
 
 const styles = StyleSheet.create({
   page: {
-    paddingTop: 10,
-    paddingRight: 15,
     paddingLeft: 15,
+  },
+  wrapper: {
+    width: "100%",
+    flexDirection: "row",
+  },
+  main: {
+    width: "95%",
+    paddingTop: 10,
     paddingBottom: 20,
+    paddingRight: 8,
+    flexGrow: 1,
   },
   heading: {
-    marginBottom: 6,
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  container: {
+    marginTop: 4,
+    width: "100%",
+  },
+  sidebar: {
+    width: "5%",
+    height: "100%",
+    marginLeft: 4,
   },
 });
 
@@ -26,10 +47,26 @@ export const Weekly2 = ({ id, heading, description, days }: Props) => {
   return (
     <>
       <Page size="A4" style={styles.page} orientation="landscape" id={id}>
-        <View style={styles.heading}>
-          <PageDateTitle heading={heading} description={description} />
+        <View style={styles.wrapper}>
+          <View style={styles.main}>
+            <View style={styles.heading}>
+              <PageDateTitle heading={heading} description={description} />
+              <Calendar
+                context={{
+                  date: new Date("2023-04-1"),
+                  activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+                }}
+              />
+            </View>
+            <View>
+              <TimeTable days={days} />
+            </View>
+          </View>
+
+          <View style={styles.sidebar}>
+            <Sidebar />
+          </View>
         </View>
-        <TimeTable days={days} />
       </Page>
     </>
   );

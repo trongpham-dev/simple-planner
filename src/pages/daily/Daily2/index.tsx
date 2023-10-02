@@ -2,6 +2,7 @@ import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import { handleBgColor } from "common/plannerRendering";
 
 import BlankRowCard from "components/BlankRowCard";
+import Calendar from "components/Calendar";
 import EatTodayCard from "components/EatTodayCard";
 import MainFocusCard from "components/MainFocusCard";
 import PageDateTitle from "components/PageDateTitle";
@@ -61,6 +62,11 @@ const styles = StyleSheet.create({
   bottom: {
     height: "35%",
   },
+  heading: {
+    marginBottom: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
 
 interface Props {
@@ -75,8 +81,13 @@ export const Daily2 = ({ day }: Props) => {
     <Page size="A4" style={styles.page} orientation="landscape">
       <View style={styles.wrapper}>
         <View style={styles.main}>
-          <View>
+          <View style={styles.heading}>
             <PageDateTitle heading={heading} description={description} />
+            <Calendar
+              context={{
+                date: new Date("2023-04-1"),
+              }}
+            />
           </View>
           <View style={styles.container}>
             <View style={styles.left}>
