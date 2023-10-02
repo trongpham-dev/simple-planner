@@ -6,9 +6,10 @@ import { selectTheme } from "stores/reducers/theme";
 
 interface Props {
   timeSchedule: string;
+  portraitRowHeight?: number;
 }
 
-export default function TimeScheduleRow({ timeSchedule }: Props) {
+export default function TimeScheduleRow({ timeSchedule, portraitRowHeight }: Props) {
   const { color } = useSelector(selectTheme());
   const styles = StyleSheet.create({
     container: {
@@ -19,7 +20,7 @@ export default function TimeScheduleRow({ timeSchedule }: Props) {
       marginTop: 8,
 
       "@media orientation: portrait": {
-        height: 21,
+        height: portraitRowHeight || 19,
       },
     },
     time: {

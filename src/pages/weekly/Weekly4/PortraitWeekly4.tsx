@@ -1,4 +1,5 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import Calendar from "components/Calendar";
 import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
@@ -21,12 +22,15 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   sidebar: {
-    width: "5%",
+    width: "6%",
     height: "100%",
     marginLeft: 4,
   },
   heading: {
     marginBottom: 6,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   container: {
     width: "100%",
@@ -54,14 +58,11 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   todoCard: {
-    // width: "26%",
     height: "50%",
   },
   note: {
-    // width: "45%",
     width: "100%",
     height: "100%",
-    // height: "158",
   },
 });
 
@@ -74,32 +75,22 @@ interface Props {
 
 export const PortraitWeekly4 = ({ id, heading, description, days }: Props) => {
   return (
-    <Page
-      size="A4"
-      style={styles.page}
-      wrap={false}
-      orientation="portrait"
-      id={id}
-    >
+    <Page size="A4" style={styles.page} wrap={false} orientation="portrait" id={id}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
             <PageDateTitle heading={heading} description={description} />
+            <Calendar
+              context={{
+                date: new Date("2023-04-1"),
+                activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+              }}
+            />
           </View>
 
           <View style={styles.container}>
             <View style={styles.top}>
-              <DayTable
-                days={[
-                  days[0],
-                  days[1],
-                  days[2],
-                  days[3],
-                  days[4],
-                  days[5],
-                  days[6],
-                ]}
-              />
+              <DayTable days={[days[0], days[1], days[2], days[3], days[4], days[5], days[6]]} />
             </View>
 
             <View style={styles.bottom}>

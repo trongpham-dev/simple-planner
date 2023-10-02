@@ -31,6 +31,7 @@ const TimeTableHeaderItem = ({ withoutBorder = false, day }: Props) => {
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
+      fontSize: 12,
 
       "@media orientation: portrait": {
         fontSize: 9,
@@ -46,9 +47,7 @@ const TimeTableHeaderItem = ({ withoutBorder = false, day }: Props) => {
   });
 
   return (
-    <View
-      style={withoutBorder ? styles.withoutBorderContainer : styles.container}
-    >
+    <View style={withoutBorder ? styles.withoutBorderContainer : styles.container}>
       <Text style={styles.number}>{day.format("DD")}</Text>
       <Text style={styles.title}>{day.format("dddd")}</Text>
     </View>

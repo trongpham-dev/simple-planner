@@ -1,5 +1,6 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import BlankRowCard from "components/BlankRowCard";
+import Calendar from "components/Calendar";
 
 import PageDateTitle from "components/PageDateTitle";
 import Priorities from "components/Priorities";
@@ -58,6 +59,11 @@ const styles = StyleSheet.create({
   rBottom: {
     height: "30%",
   },
+  pageHeading: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 });
 
 interface Props {
@@ -72,8 +78,13 @@ export const PortraitDaily1 = ({ day }: Props) => {
     <Page size="A4" style={styles.page} orientation="portrait" wrap={false}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
-          <View>
+          <View style={styles.pageHeading}>
             <PageDateTitle heading={heading} description={description} />
+            <Calendar
+              context={{
+                date: new Date("2023-04-1"),
+              }}
+            />
           </View>
           <View style={styles.container}>
             <View style={styles.left}>

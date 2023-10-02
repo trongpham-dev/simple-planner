@@ -1,4 +1,5 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
+import Calendar from "components/Calendar";
 import DayTable from "components/DayTable";
 import PageDateTitle from "components/PageDateTitle";
 import Sidebar from "components/Sidebar";
@@ -26,7 +27,9 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   heading: {
-    marginBottom: 6,
+    marginBottom: 8,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   container: {
     width: "100%",
@@ -35,9 +38,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   top: {
-    marginBottom: 12,
+    marginBottom: 20,
   },
   bottom: {
+    paddingTop: 8,
     flexGrow: 1,
     flexDirection: "row",
     justifyContent: "space-between",
@@ -61,17 +65,17 @@ interface Props {
 export const Weekly4 = ({ id, heading, description, days }: Props) => {
   return (
     <>
-      <Page
-        size="A4"
-        style={styles.page}
-        wrap={false}
-        orientation="landscape"
-        id={id}
-      >
+      <Page size="A4" style={styles.page} wrap={false} orientation="landscape" id={id}>
         <View style={styles.wrapper}>
           <View style={styles.main}>
             <View style={styles.heading}>
               <PageDateTitle heading={heading} description={description} />
+              <Calendar
+                context={{
+                  date: new Date("2023-04-1"),
+                  activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+                }}
+              />
             </View>
 
             <View style={styles.container}>

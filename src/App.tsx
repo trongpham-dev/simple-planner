@@ -13,6 +13,10 @@ import { PortraitWeekly2 } from "pages/weekly/Weekly2/PortraitWeekly2";
 import { PortraitWeekly4 } from "pages/weekly/Weekly4/PortraitWeekly4";
 import { PortraitWeekly3 } from "pages/weekly/Weekly3/PortraitWeekly3";
 import moment from "moment";
+import { Weekly3 } from "pages/weekly/Weekly3";
+import { Weekly4 } from "pages/weekly/Weekly4";
+import { Daily1 } from "pages/daily/Daily1";
+import { Daily2 } from "pages/daily/Daily2";
 
 function App() {
   // const elms = months.map((m) => <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />);
@@ -26,66 +30,35 @@ function App() {
     <PDFViewer className="w-full h-full">
       <Provider store={store}>
         <Document>
-          {/* <PortraitDaily1 /> */}
+          <Daily2 day={moment()} />
+
+          {/* <PortraitDaily1 day={moment()} /> */}
           {/* <PortraitDaily2 day={moment()} /> */}
-          <Weekly1
+
+          {/* <Weekly1
             id="1"
             days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
             heading="heading"
             description="description"
-          />
-          {/* <PortraitWeekly1 /> */}
-          {/* <PortraitWeekly2 /> */}
-          {/* <PortraitWeekly4 /> */}
-          {/* <PortraitWeekly3 /> */}
+          /> */}
+
+          {/* <Weekly4
+            id="1"
+            days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
+            heading="heading"
+            description="description"
+          /> */}
+
+          {/* <PortraitWeekly4
+            id="1"
+            days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
+            heading="heading"
+            description="description"
+          /> */}
         </Document>
       </Provider>
     </PDFViewer>
   );
-  // return (
-  //   <PDFViewer className="w-full h-full">
-  //     <Provider store={store}>
-  //       <Document>
-  //         {/* <PortraitDaily1 /> */}
-  //         {/* <PortraitDaily2 /> */}
-  //         <PortraitWeekly1 />
-  //       </Document>
-  //     </Provider>
-  //   </PDFViewer>
-  // );
 }
 
 export default App;
-
-// <PDFViewer className="w-full h-full">
-{
-  /* <Weekly3 /> */
-}
-{
-  /* <Document>{elms}</Document> */
-}
-{
-  /* <MainDocument /> */
-}
-{
-  /* <Weekly2 /> */
-}
-
-{
-  /* <Document>
-        <Weekly4 id={1} month={2} year={2023} startDate={2} />
-
-        <Daily1 day={moment()} />
-      </Document> */
-}
-
-{
-  /* <Daily2 day={moment()} /> */
-}
-// </PDFViewer>
-
-// <PDFDownloadLink document={<MainDocument />} fileName="somename.pdf">
-//   {({ blob, url, loading, error }) =>
-//     loading ? "Loading document..." : "Download now!"
-//   }
-// </PDFDownloadLink>
