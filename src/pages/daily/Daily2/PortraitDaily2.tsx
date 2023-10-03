@@ -92,15 +92,18 @@ export const PortraitDaily2 = ({ day }: Props) => {
   const heading = day.format("DD dddd");
   const description = day.format("MMMM YYYY");
 
+  const currDay = day.toDate();
+  const id = `${currDay.getDate()}-${currDay.getMonth()}-${currDay.getFullYear()}`;
+
   return (
-    <Page size="A4" style={styles.page} orientation="portrait" wrap={false} id={day.toDate().toString()}>
+    <Page size="A4" style={styles.page} orientation="portrait" wrap={false} id={id}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.pageHeading}>
             <PageDateTitle heading={heading} description={description} />
             <Calendar
               context={{
-                date: day.toDate(),
+                date: currDay,
               }}
             />
           </View>

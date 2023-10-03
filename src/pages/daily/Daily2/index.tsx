@@ -77,15 +77,18 @@ export const Daily2 = ({ day }: Props) => {
   const { color } = useSelector(selectTheme());
   const heading = day.format("DD dddd");
   const description = day.format("MMMM YYYY");
+
+  const currDay = day.toDate();
+  const id = `${currDay.getDate()}-${currDay.getMonth()}-${currDay.getFullYear()}`;
   return (
-    <Page size="A4" style={styles.page} orientation="landscape">
+    <Page size="A4" style={styles.page} orientation="landscape" wrap={false} id={id}>
       <View style={styles.wrapper}>
         <View style={styles.main}>
           <View style={styles.heading}>
             <PageDateTitle heading={heading} description={description} />
             <Calendar
               context={{
-                date: new Date("2023-04-1"),
+                date: currDay,
               }}
             />
           </View>

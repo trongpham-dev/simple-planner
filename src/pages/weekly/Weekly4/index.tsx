@@ -72,8 +72,8 @@ export const Weekly4 = ({ id, heading, description, days }: Props) => {
               <PageDateTitle heading={heading} description={description} />
               <Calendar
                 context={{
-                  date: new Date("2023-04-1"),
-                  activeRangeDates: [new Date("2023-03-27"), new Date("2023-04-02")],
+                  date: days[0].toDate(),
+                  activeRangeDates: [days[0].toDate(), days[6].toDate()],
                 }}
               />
             </View>
