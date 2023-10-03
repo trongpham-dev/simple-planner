@@ -1,6 +1,5 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 
-import Heading from "pages/weekly/Weekly3/Heading";
 import Notes from "pages/weekly/Weekly3/Notes";
 import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 import Day from "pages/weekly/Weekly3/Day";
@@ -8,6 +7,8 @@ import PageDateTitle from "components/PageDateTitle";
 import { Moment } from "moment";
 import Calendar from "components/Calendar";
 import Sidebar from "components/Sidebar";
+import Heading from "components/Heading";
+import Priorities from "components/Priorities";
 
 const styles = StyleSheet.create({
   page: {
@@ -86,15 +87,7 @@ export const Weekly3 = ({ id, heading, description, days }: Props) => {
               </View>
               <View style={styles.right}>
                 <View style={styles.priorities}>
-                  <Heading title="WEEK’S PRIORITIES" />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
-                  <PriorityRow />
+                  <Priorities totalRow={8} />
                 </View>
 
                 <View style={styles.notes}>

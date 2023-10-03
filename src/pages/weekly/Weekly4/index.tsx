@@ -85,13 +85,13 @@ export const Weekly4 = ({ id, heading, description, days }: Props) => {
 
               <View style={styles.bottom}>
                 <View style={styles.todoCard}>
-                  <TodoCard />
+                  <TodoCard title="WHAT WORKED WELL?" />
                 </View>
                 <View style={styles.todoCard}>
                   <TodoCard />
                 </View>
                 <View style={styles.note}>
-                  <Notes />
+                  <Notes title="NOTES FOR NEXT WEEK" />
                 </View>
               </View>
             </View>

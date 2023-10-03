@@ -85,7 +85,7 @@ export const Daily1 = ({ day }: Props) => {
             </View>
             <View style={styles.center}>
               <View style={styles.top}>
-                <Priorities totalRow={7} />
+                <Priorities totalRow={7} heading="PRIORITIES" />
               </View>
               <View style={styles.bottom}>
                 <TodoList totalRow={8} />

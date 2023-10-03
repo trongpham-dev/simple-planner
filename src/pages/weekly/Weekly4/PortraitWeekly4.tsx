@@ -96,7 +96,7 @@ export const PortraitWeekly4 = ({ id, heading, description, days }: Props) => {
             <View style={styles.bottom}>
               <View style={styles.bLeft}>
                 <View style={[styles.todoCard, { marginBottom: 12 }]}>
-                  <TodoCard />
+                  <TodoCard title="WHAT WORKED WELL?" />
                 </View>
                 <View style={styles.todoCard}>
                   <TodoCard />

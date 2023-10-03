@@ -1,9 +1,9 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
+import { LunchIcon, WaterIcon } from "assets/images/svg-icons";
 import { handleBorderBottomColor } from "common/plannerRendering";
-import BlankRowItem from "components/BlankRowCard/BlankRowItem";
 import BlankRowItemWithIcon from "components/BlankRowCard/BlankRowItemWithIcon";
+import Heading from "components/Heading";
 
-import Heading from "pages/weekly/Weekly3/Heading";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 
@@ -28,10 +28,13 @@ export default function EatTodayCard({ totalRow }: Props) {
       {Array(totalRow)
         .fill(1)
         .map((_, i) => (
-          <BlankRowItem key={i} />
+          <BlankRowItemWithIcon
+            key={i}
+            icon={<LunchIcon />}
+            customStyles={{ borderBottomColor: handleBorderBottomColor(color), borderBottomWidth: 1 }}
+          />
         ))}
-      {/* <Image src={WaterIcon} /> */}
-      <BlankRowItemWithIcon />
+      <BlankRowItemWithIcon icon={<WaterIcon />} />
     </View>
   );
 }

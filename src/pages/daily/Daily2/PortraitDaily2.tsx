@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   lBottom: {
-    height: "28%",
+    height: "25%",
     flexDirection: "row",
   },
   lbLeft: {
@@ -64,23 +64,24 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   rTop: {
-    height: "35%",
+    height: "40%",
   },
   rMiddle1: {
     marginVertical: 10,
-    height: "20%",
+    height: "17%",
   },
   rMiddle2: {
     height: "20%",
     marginBottom: 15,
   },
   rBottom: {
-    height: "20%",
+    height: "25%",
   },
 
   pageHeading: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 6,
   },
 });
 
@@ -121,7 +122,6 @@ export const PortraitDaily2 = ({ day }: Props) => {
                     totalRow={7}
                     customStyles={{
                       backgroundColor: COLOR.EXTRA_LIGHT_BROWN,
-                      // paddingBottom: 8,
                     }}
                   />
                 </View>
@@ -136,7 +136,7 @@ export const PortraitDaily2 = ({ day }: Props) => {
                 <EatTodayCard totalRow={3} />
               </View>
               <View style={styles.rMiddle2}>
-                <Priorities totalRow={5} />
+                <Priorities totalRow={5} heading="PRIORITIES" />
               </View>
               <View style={styles.rBottom}>
                 <TodoList totalRow={5} />

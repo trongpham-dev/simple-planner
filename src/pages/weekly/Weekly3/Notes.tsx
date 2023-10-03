@@ -1,11 +1,15 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import { ThemeColors } from "common/plannerOptions";
 import { handleBgColor } from "common/plannerRendering";
-import Heading from "pages/weekly/Weekly3/Heading";
+import Heading from "components/Heading";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 
-export default function Notes() {
+type Props = {
+  title?: string;
+};
+
+export default function Notes({ title }: Props) {
   const { color } = useSelector(selectTheme());
   const styles = StyleSheet.create({
     container: {
@@ -19,7 +23,7 @@ export default function Notes() {
   });
   return (
     <View style={styles.container}>
-      <Heading title="NOTES" />
+      <Heading title={title || "NOTES"} />
     </View>
   );
 }

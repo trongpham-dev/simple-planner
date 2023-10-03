@@ -1,14 +1,14 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import { ThemeColors } from "common/plannerOptions";
-import {
-  handleBgColor,
-  handleBorderBottomColor,
-} from "common/plannerRendering";
+import { handleBgColor, handleBorderBottomColor } from "common/plannerRendering";
 import { useSelector } from "react-redux";
 import { selectTheme } from "stores/reducers/theme";
 
+type Props = {};
+
 export default function ToDoListItem() {
   const { color } = useSelector(selectTheme());
+
   const styles = StyleSheet.create({
     container: {
       borderBottomColor: handleBorderBottomColor(color),
@@ -30,6 +30,7 @@ export default function ToDoListItem() {
       fontSize: 8,
     },
   });
+
   return (
     <View style={styles.container}>
       <View style={styles.orderContainer}></View>

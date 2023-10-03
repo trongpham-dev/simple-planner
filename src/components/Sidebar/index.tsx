@@ -11,7 +11,7 @@ export default function Sidebar({ portraitPaddingVertical }: Props) {
     container: {
       backgroundColor: COLOR.GRAY,
       height: "100%",
-      paddingVertical: 6,
+      paddingVertical: 20,
     },
   });
 

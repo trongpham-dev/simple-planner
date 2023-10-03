@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     marginTop: 8.5,
     paddingLeft: 8,
     fontSize: 13,
+    flexDirection: "row",
   },
   number: {
     fontWeight: 700,

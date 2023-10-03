@@ -1,7 +1,11 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
+import Heading from "components/Heading";
 import TodoRow from "components/TodoCard/TodoRow";
 import { COLOR } from "constants/color";
-import Heading from "pages/weekly/Weekly3/Heading";
+
+type Props = {
+  title?: string;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -20,10 +24,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function TodoCard() {
+export default function TodoCard({ title }: Props) {
   return (
     <View style={styles.container}>
-      <Heading title="WHAT WORKED WELL?" />
+      <Heading title={title || "WHAT DIDN'T WORK?"} />
       <TodoRow />
       <TodoRow />
       <TodoRow />

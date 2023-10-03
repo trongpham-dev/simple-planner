@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     marginVertical: -2,
   },
   bottom: {
+    marginTop: 8,
     height: "35%",
   },
   heading: {
@@ -101,15 +102,15 @@ export const Daily2 = ({ day }: Props) => {
                 <MainFocusCard />
               </View>
               <View style={styles.middle}>
-                <Priorities totalRow={5} />
+                <Priorities totalRow={5} heading="PRIORITIES" />
               </View>
               <View style={styles.bottom}>
                 <BlankRowCard
                   totalRow={5}
                   customStyles={{
                     backgroundColor: handleBgColor(color),
-                    paddingVertical: 8,
                   }}
+                  rowMarginTop={10}
                 />
               </View>
             </View>

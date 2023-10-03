@@ -48,16 +48,17 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   lBottom: {
-    height: "30%",
+    height: "32%",
   },
   rTop: {
     flexGrow: 1,
   },
   rMiddle: {
-    height: "38%",
+    marginTop: 10,
+    height: "40%",
   },
   rBottom: {
-    height: "30%",
+    height: "32%",
   },
   pageHeading: {
     flexDirection: "row",
@@ -100,14 +101,14 @@ export const PortraitDaily1 = ({ day }: Props) => {
             </View>
             <View style={styles.right}>
               <View style={styles.rTop}>
-                <Priorities totalRow={7} />
+                <Priorities totalRow={7} heading="PRIORITIES" />
               </View>
               <View style={styles.rMiddle}>
-                <TodoList totalRow={8} />
+                <TodoList totalRow={9} />
               </View>
               <View style={styles.rBottom}>
                 <BlankRowCard
-                  totalRow={7}
+                  totalRow={8}
                   customStyles={{
                     borderColor: COLOR.LIGHT_BROWN,
                     borderWidth: 1,

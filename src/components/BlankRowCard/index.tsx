@@ -1,7 +1,6 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
 import BlankRowItem from "components/BlankRowCard/BlankRowItem";
-
-import Heading from "pages/weekly/Weekly3/Heading";
+import Heading from "components/Heading";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,16 +11,17 @@ const styles = StyleSheet.create({
 type Props = {
   totalRow: number;
   customStyles?: any;
+  rowMarginTop?: number;
 };
 
-export default function BlankRowCard({ totalRow, customStyles }: Props) {
+export default function BlankRowCard({ totalRow, customStyles, rowMarginTop }: Props) {
   return (
     <View style={[styles.container, customStyles]}>
       <Heading title="MOVING TO TOMORROW" />
       {Array(totalRow)
         .fill(1)
         .map((_, i) => (
-          <BlankRowItem key={i} />
+          <BlankRowItem key={i} rowMarginTop={rowMarginTop} />
         ))}
     </View>
   );

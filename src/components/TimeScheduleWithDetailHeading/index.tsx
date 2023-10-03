@@ -1,7 +1,9 @@
 import { StyleSheet, View } from "@react-pdf/renderer";
+import Heading from "components/Heading";
 import TimeScheduleRow from "components/TimeSchedule/TimeScheduleRow";
 import DetailHeading from "components/TimeScheduleWithDetailHeading/DetailHeading";
 import { COLOR } from "constants/color";
+import { TIME_SCHEDULES } from "constants/common";
 
 const styles = StyleSheet.create({
   container: {
@@ -21,23 +23,12 @@ export default function TimeScheduleWithDetailHeading() {
   return (
     <View style={styles.container}>
       <DetailHeading />
-      <TimeScheduleRow timeSchedule="6:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="7:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="8:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="9:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="10:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="11:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="12:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="1:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="2:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="3:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="4:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="5:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="6:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="7:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="8:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="9:00" portraitRowHeight={21} />
-      <TimeScheduleRow timeSchedule="10:00" portraitRowHeight={21} />
+
+      <Heading title="SCHEDULE" />
+
+      {TIME_SCHEDULES.map((item, index) => (
+        <TimeScheduleRow timeSchedule={item} key={index} portraitRowHeight={21} />
+      ))}
     </View>
   );
 }

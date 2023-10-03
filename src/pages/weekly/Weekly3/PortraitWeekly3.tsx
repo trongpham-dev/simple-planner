@@ -1,11 +1,12 @@
 import { Page, StyleSheet, View } from "@react-pdf/renderer";
 import Calendar from "components/Calendar";
+import Heading from "components/Heading";
 
 import PageDateTitle from "components/PageDateTitle";
+import Priorities from "components/Priorities";
 import Sidebar from "components/Sidebar";
 import { Moment } from "moment";
 import Day from "pages/weekly/Weekly3/Day";
-import Heading from "pages/weekly/Weekly3/Heading";
 import Notes from "pages/weekly/Weekly3/Notes";
 import PriorityRow from "pages/weekly/Weekly3/PriorityRow";
 
@@ -89,15 +90,7 @@ export const PortraitWeekly3 = ({ id, heading, description, days }: Props) => {
 
             <View style={styles.bottom}>
               <View style={styles.priorities}>
-                <Heading title="WEEK’S PRIORITIES" />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
-                <PriorityRow />
+                <Priorities totalRow={8} rowHeight={23} />
               </View>
 
               <View style={styles.notes}>
