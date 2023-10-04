@@ -20,38 +20,38 @@ import { Daily2 } from "pages/daily/Daily2";
 
 function App() {
   // const elms = months.map((m) => <Weekly1 id={m} year={2023} month={m} startDate={1} key={m} />);
-  // return (
-  //   <Provider store={store}>
-  //     <Home />
-  //     {/* {elms} */}
-  //   </Provider>
-  // );
   return (
-    <PDFViewer className="w-full h-full">
-      <Provider store={store}>
-        <Document>
-          {/* <Daily1 day={moment()} /> */}
-
-          {/* <PortraitDaily1 day={moment()} /> */}
-          {/* <PortraitDaily2 day={moment()} /> */}
-
-          {/* <Weekly4
-            id="1"
-            days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
-            heading="heading"
-            description="description"
-          /> */}
-
-          <PortraitWeekly1
-            id="1"
-            days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
-            heading="heading"
-            description="description"
-          />
-        </Document>
-      </Provider>
-    </PDFViewer>
+    <Provider store={store}>
+      <Home />
+      {/* {elms} */}
+    </Provider>
   );
+  // return (
+  //   <PDFViewer className="w-full h-full">
+  //     <Provider store={store}>
+  //       <Document>
+  //         {/* <Daily1 day={moment()} /> */}
+
+  //         {/* <PortraitDaily1 day={moment()} /> */}
+  //         {/* <PortraitDaily2 day={moment()} /> */}
+
+  //         {/* <Weekly4
+  //           id="1"
+  //           days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
+  //           heading="heading"
+  //           description="description"
+  //         /> */}
+
+  //         <PortraitWeekly1
+  //           id="1"
+  //           days={[moment(), moment(), moment(), moment(), moment(), moment(), moment()]}
+  //           heading="heading"
+  //           description="description"
+  //         />
+  //       </Document>
+  //     </Provider>
+  //   </PDFViewer>
+  // );
 }
 
 export default App;
