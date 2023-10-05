@@ -78,10 +78,15 @@ const styles = StyleSheet.create({
     height: "25%",
   },
 
+  // pageHeading: {
+  //   flexDirection: "row",
+  //   justifyContent: "space-between",
+  //   marginBottom: 6,
+  // },
+
   pageHeading: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 6,
   },
 });
 
