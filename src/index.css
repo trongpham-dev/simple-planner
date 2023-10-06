@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Clash Display";
+    font-weight: 400;
+    src: url("/src/assets/fonts/ClashDisplay-Regular.ttf") format("tff");
+  }
+}
+
 body {
+  font-family: "Clash Display";
   height: 100vh;
 
   .black-btn {

@@ -20,3 +20,8 @@ export enum DailyType {
   Minimal = "Minimal",
   Structured = "Structured",
 }
+
+export enum WeekLyStartType {
+  Monday = 0,
+  Sunday = 1,
+}
