@@ -19,3 +19,5 @@ export const TIME_SCHEDULES = [
   "9:00",
   "10:00",
 ];
+
+export const PDF_FILE_NAME = "Digital_Planner.pdf";

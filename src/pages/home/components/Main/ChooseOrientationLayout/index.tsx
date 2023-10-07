@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeOrientation, selectTheme } from "stores/reducers/theme";
 import { isLandscape, isPortrait, showBorderColor } from "utils/common";
 
-export default function StartingLayout() {
+export default function ChooseOrientationLayout() {
   const dispatch = useDispatch();
   const { orientation } = useSelector(selectTheme());
 

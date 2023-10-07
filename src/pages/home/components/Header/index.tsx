@@ -5,7 +5,6 @@ export default function Header() {
   return (
     <div className="flex justify-between py-6 px-20">
       <Logo />
-      <ColorSwitches />
     </div>
   );
 }

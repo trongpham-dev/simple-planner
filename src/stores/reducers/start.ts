@@ -1,9 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { WeekLyStartType } from "models/enum";
+import { WeeklyStartType } from "models/enum";
 import { AppState } from "stores";
 
 export interface WeeklyStartState {
-  startAt: WeekLyStartType | undefined;
+  startAt: WeeklyStartType | undefined;
 }
 
 const initialState: WeeklyStartState = {
@@ -14,7 +14,7 @@ export const weeklyStartSlice = createSlice({
   name: "weeklyStart",
   initialState,
   reducers: {
-    changeWeeklyStart(state, action: PayloadAction<WeekLyStartType>) {
+    changeWeeklyStart(state, action: PayloadAction<WeeklyStartType>) {
       state.startAt = action.payload;
     },
   },

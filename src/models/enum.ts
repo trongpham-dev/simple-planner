@@ -21,7 +21,19 @@ export enum DailyType {
   Structured = "Structured",
 }
 
-export enum WeekLyStartType {
-  Monday = 0,
-  Sunday = 1,
+export enum WeeklyStartType {
+  Monday = 1,
+  Sunday = 2,
+}
+
+export enum PlaningStep {
+  S0_Start,
+  S1_Orientation,
+  S2_Color,
+  S3_WeeklyLayout,
+  S4_WeeklyStartDate,
+  S5_DailyLayout,
+  S6_Finish,
+  S7_Downloading,
+  S8_ThankYou,
 }

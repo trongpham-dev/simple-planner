@@ -1,4 +1,4 @@
-import { DailyType, Orientation, WeeklyType } from "models/enum";
+import { ColorType, DailyType, Orientation, PlaningStep, WeeklyStartType, WeeklyType } from "models/enum";
 
 export const isLandscape = (orientation: Orientation | undefined) => orientation === Orientation.Landscape;
 export const isPortrait = (orientation: Orientation | undefined) => orientation === Orientation.Portrait;
@@ -14,3 +14,10 @@ export const isWeeklyVerticalLayout = (weeklyLayout: WeeklyType) => weeklyLayout
 
 export const isDailyMinimalLayout = (dailyLayout: DailyType) => dailyLayout === DailyType.Minimal;
 export const isDailyStructuredLayout = (dailyLayout: DailyType) => dailyLayout === DailyType.Structured;
+
+export const isPrimaryColor = (color: ColorType | string) => color === ColorType.Primary;
+export const isSecondaryColor = (color: ColorType | string) => color === ColorType.Secondary;
+export const isTertiaryColor = (color: ColorType | string) => color === ColorType.Tertiary;
+
+export const isStartDateMonday = (startDate: WeeklyStartType) => startDate === WeeklyStartType.Monday;
+export const isStartDateSunday = (startDate: WeeklyStartType) => startDate === WeeklyStartType.Sunday;

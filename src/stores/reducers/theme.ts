@@ -9,7 +9,7 @@ export type ThemeState = {
 };
 
 const initialState: ThemeState = {
-  color: ColorType.Primary,
+  color: "",
   orientation: undefined,
 };
 
@@ -17,7 +17,7 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    changeColor(state, action: PayloadAction<string>) {
+    changeColor(state, action: PayloadAction<ColorType>) {
       state.color = action.payload;
     },
 
@@ -31,8 +31,7 @@ export const themeSlice = createSlice({
   },
 });
 
-export const { changeColor, changeOrientation, resetOrientation } =
-  themeSlice.actions;
+export const { changeColor, changeOrientation, resetOrientation } = themeSlice.actions;
 
 export default themeSlice.reducer;
 
